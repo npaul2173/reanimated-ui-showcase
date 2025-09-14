@@ -8,13 +8,11 @@
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Navigation } from './src';
-import { StatusBar } from 'react-native';
 
 function App() {
   return (
     <SafeAreaProvider>
       <GestureHandlerRootView>
-        <StatusBar backgroundColor={'#EFEFEF'} />
         <Navigation />
       </GestureHandlerRootView>
     </SafeAreaProvider>

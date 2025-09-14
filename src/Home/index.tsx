@@ -1,5 +1,5 @@
-import { useCallback } from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import React, { useCallback, useMemo } from 'react';
+import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import Animated, {
   interpolate,
   SharedValue,
@@ -9,38 +9,20 @@ import Animated, {
 } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { listData, ScreensListProps } from './constants';
-
-const { height } = Dimensions.get('window');
+import { Header } from './header';
 
 const ITEM_HEIGHT = 300; // height of each item + separator
-const CENTER = height / 2; // middle of the screen
 
 const ListItem: React.FC<{
   data: ScreensListProps;
   index: number;
   scrollY: SharedValue<number>;
-}> = ({ index, scrollY, data }) => {
-  const animatedStyle = useAnimatedStyle(() => {
-    const itemCenterY = index * ITEM_HEIGHT + ITEM_HEIGHT / 2;
-    const distanceFromCenter = itemCenterY - scrollY.value - CENTER;
-
-    const scale = interpolate(
-      distanceFromCenter,
-      [-ITEM_HEIGHT * 2, 0, ITEM_HEIGHT * 2], // distance above, center, below
-      [0.85, 1, 0.85], // smaller above/below, full size at center
-    );
-
-    return {
-      transform: [{ scale }],
-    };
-  });
-
+}> = ({ data }) => {
   return (
     <Animated.View
       style={[
         styles.card,
         { backgroundColor: data.bgColor, height: ITEM_HEIGHT - 16 },
-        animatedStyle,
       ]}
     >
       <Text style={styles.cardTitle}>{data.title}</Text>
@@ -55,6 +37,7 @@ export const HomeScreen: React.FC = () => {
   const scrollHandler = useAnimatedScrollHandler({
     onScroll: event => {
       scrollY.value = event.contentOffset.y;
+      // runOnJS(console.log)('scrollY:', scrollY.value); // 👈 logs to JS console
     },
   });
 
@@ -62,22 +45,41 @@ export const HomeScreen: React.FC = () => {
     ({ item, index }: { item: ScreensListProps; index: number }) => (
       <ListItem data={item} index={index} scrollY={scrollY} />
     ),
-    [],
+    [scrollY],
   );
+
+  const seperatorComponent = useMemo(() => {
+    const comp: React.FC = () => <View style={styles.separator} />;
+    return comp;
+  }, []);
+
+  const footerComponent = useMemo(() => {
+    const comp: React.FC = () => <View style={styles.footerContainer} />;
+    return comp;
+  }, []);
+
+  const listAnimatedStyles = useAnimatedStyle(() => {
+    return {
+      paddingTop: interpolate(scrollY.value, [0, 200], [200, 0]),
+    };
+  });
 
   return (
     <SafeAreaView mode="margin" style={styles.container}>
-      <View>
-        <Animated.FlatList
-          ItemSeparatorComponent={() => <View style={styles.separator} />}
-          data={listData}
-          keyExtractor={item => item.title.toString()}
-          renderItem={renderItem}
-          onScroll={scrollHandler}
-          scrollEventThrottle={16}
-          showsVerticalScrollIndicator={false}
-        />
-      </View>
+      <Header scrollY={scrollY} />
+      <StatusBar barStyle={'dark-content'} backgroundColor={'#FFFFFF'} />
+
+      <Animated.FlatList
+        ItemSeparatorComponent={seperatorComponent}
+        ListFooterComponent={footerComponent}
+        data={listData}
+        keyExtractor={item => item.title.toString()}
+        renderItem={renderItem}
+        onScroll={scrollHandler}
+        scrollEventThrottle={16}
+        showsVerticalScrollIndicator={false}
+        style={[styles.listContainer, listAnimatedStyles]}
+      />
     </SafeAreaView>
   );
 };
@@ -86,10 +88,16 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#EFEFEF',
+    // paddingHorizontal: 16,
+  },
+  listContainer: {
     paddingHorizontal: 16,
   },
   separator: {
     height: 16,
+  },
+  footerContainer: {
+    height: 100,
   },
   card: {
     padding: 16,

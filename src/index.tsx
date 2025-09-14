@@ -1,11 +1,8 @@
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { createStaticNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import {
-  createStaticNavigation,
-  useNavigation,
-} from '@react-navigation/native';
 import { HomeScreen } from './Home';
 
 // export const HomeScreen: React.FC = () => {
