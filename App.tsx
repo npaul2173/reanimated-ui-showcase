@@ -7,7 +7,7 @@
 
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { Navigation } from './src';
+import { Navigation } from './src/navigation/router';
 
 function App() {
   return (

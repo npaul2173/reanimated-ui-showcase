@@ -103,13 +103,13 @@ export const styles = StyleSheet.create({
     letterSpacing: -1,
   },
   subtitleContainer: {
-    backgroundColor: '#09aae9ff',
+    // backgroundColor: '#09aae9ff',
     padding: 10,
     borderRadius: 10,
     alignSelf: 'flex-start',
   },
   subtitle: {
-    color: 'white',
+    // color: 'white',
     fontSize: 60,
     fontWeight: '700',
     letterSpacing: -3,

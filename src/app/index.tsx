@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from 'react';
-import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StatusBar, StyleSheet, Text, View } from 'react-native';
 import Animated, {
   interpolate,
   SharedValue,
@@ -10,24 +10,36 @@ import Animated, {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { listData, ScreensListProps } from './constants';
 import { Header } from './header';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../navigation/router';
 
 const ITEM_HEIGHT = 300; // height of each item + separator
+
+type RootStackNavigation = NativeStackNavigationProp<RootStackParamList>;
 
 const ListItem: React.FC<{
   data: ScreensListProps;
   index: number;
   scrollY: SharedValue<number>;
 }> = ({ data }) => {
+  const navigation = useNavigation<RootStackNavigation>();
   return (
-    <Animated.View
-      style={[
-        styles.card,
-        { backgroundColor: data.bgColor, height: ITEM_HEIGHT - 16 },
-      ]}
+    <Pressable
+      onPress={() => {
+        navigation.navigate(data.navigationKey);
+      }}
     >
-      <Text style={styles.cardTitle}>{data.title}</Text>
-      <Text style={styles.cardDescription}>{data.description}</Text>
-    </Animated.View>
+      <Animated.View
+        style={[
+          styles.card,
+          { backgroundColor: data.bgColor, height: ITEM_HEIGHT - 16 },
+        ]}
+      >
+        <Text style={styles.cardTitle}>{data.title}</Text>
+        <Text style={styles.cardDescription}>{data.description}</Text>
+      </Animated.View>
+    </Pressable>
   );
 };
 
@@ -87,7 +99,7 @@ export const HomeScreen: React.FC = () => {
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#EFEFEF',
+    backgroundColor: '#ffffffff',
     // paddingHorizontal: 16,
   },
   listContainer: {
