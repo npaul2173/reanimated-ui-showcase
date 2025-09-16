@@ -1,3 +1,5 @@
+![UI Reference](./assets/images/Logo.png)
+
 # React Native UI Showcase 🚀
 
 This project is a **React Native UI Showcase** app that demonstrates different UI/UX screens and animations built with **React Native** and **Reanimated**.
