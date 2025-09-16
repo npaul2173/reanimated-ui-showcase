@@ -13,6 +13,13 @@ export const listData: ScreensListProps[] = [
     description: 'Description that is for this screen',
     bgColor: '#302d2dff', // red-500
   },
+  {
+    navigationKey: 'BreakdownListCardScreen',
+    title: 'Breakdown  List',
+    description: 'Description that is for this screen',
+    bgColor: '#302d2dff', // red-500
+  },
+
   // {
   //   navigationKey: 'sharedNavigation',
   //   title: 'Shared navigation',

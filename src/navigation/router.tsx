@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet } from 'react-native';
 import { HomeScreen } from '../app';
 import AnimatedbarChartScreen from '../AnimatedbarChartScreen';
-
+import BreakdownListCardScreen from '../BreakdownListCardScreen/app';
 /**
  * Define the RootStackParamList.
  *
@@ -13,6 +13,7 @@ import AnimatedbarChartScreen from '../AnimatedbarChartScreen';
 export type RootStackParamList = {
   Home: undefined; // no params
   AnimatedbarChartScreen: undefined;
+  BreakdownListCardScreen: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>({
@@ -20,6 +21,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>({
   screens: {
     Home: HomeScreen,
     AnimatedbarChartScreen,
+    BreakdownListCardScreen,
   },
 });
 

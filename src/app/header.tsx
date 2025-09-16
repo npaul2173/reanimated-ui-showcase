@@ -37,7 +37,7 @@ export const Header: React.FC<{ scrollY: SharedValue<number> }> = ({
     const translateY = interpolate(
       scrollY.value,
       [0, 50],
-      [0, -PIVOT_Y],
+      [-10, -PIVOT_Y],
       Extrapolation.CLAMP,
     );
 
@@ -103,17 +103,17 @@ export const styles = StyleSheet.create({
     letterSpacing: -1,
   },
   subtitleContainer: {
-    // backgroundColor: '#09aae9ff',
+    backgroundColor: '#8755a0ff',
     padding: 10,
     borderRadius: 10,
     alignSelf: 'flex-start',
   },
   subtitle: {
-    // color: 'white',
-    fontSize: 60,
+    color: 'white',
+    fontSize: 40,
     fontWeight: '700',
     letterSpacing: -3,
-    lineHeight: 55,
+    lineHeight: 40,
   },
   backgroundOverlay: {
     backgroundColor: 'white',
