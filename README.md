@@ -5,7 +5,7 @@ This project is a **React Native UI Showcase** app that demonstrates different U
 ## 🎨 Animation Examples
 
 1. 📊 **Animated Bar Chart for Week Scroll**  
-   A smooth horizontal scrollable chart where each bar animates dynamically based on data.
+   A smooth horizontal scrollable chart where each bar animates dynamically based on data. [Replicated from Enzo - Reanimated](https://www.youtube.com/@Reactiive)
 
 2. 🪄 **BreakdownList Card Animation**  
    Expandable/collapsible card with elegant transitions for showing detailed breakdowns. [UI Reference – Pinterest](https://in.pinterest.com/pin/19844054604601981/)
