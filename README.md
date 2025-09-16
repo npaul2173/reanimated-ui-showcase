@@ -1,4 +1,4 @@
-![UI Reference](./assets/images/Logo.png)
+![UI Reference](./assets/images/Banner.png)
 
 # React Native UI Showcase 🚀
 
