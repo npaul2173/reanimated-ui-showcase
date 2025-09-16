@@ -1,11 +1,11 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
 import AntDesign from '@react-native-vector-icons/ant-design';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import Animated, {
   SharedValue,
   useAnimatedStyle,
-  withSpring,
   withDelay,
+  withSpring,
   withTiming,
 } from 'react-native-reanimated';
 import { BreakDownDataProps } from '../constants';
@@ -23,7 +23,9 @@ export const BreakdownItem: React.FC<{
       return {
         width: withDelay(
           500 + index * 100,
-          withSpring(sharedExpanded.value ? (data.value / 100) * uiWidth : 0),
+          withSpring(sharedExpanded.value ? (data.value / 100) * uiWidth : 0, {
+            duration: 2000,
+          }),
         ),
       };
     } else {
@@ -41,7 +43,14 @@ export const BreakdownItem: React.FC<{
       return {
         opacity: withDelay(delay, withTiming(1, { duration: 400 })),
         transform: [
-          { scale: withDelay(delay, withTiming(1, { duration: 400 })) },
+          {
+            scale: withDelay(
+              delay,
+              withSpring(1, {
+                duration: 400,
+              }),
+            ),
+          },
         ],
       };
     }
