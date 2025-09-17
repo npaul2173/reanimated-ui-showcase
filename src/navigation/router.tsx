@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native';
 import { HomeScreen } from '../app';
 import AnimatedbarChartScreen from '../AnimatedbarChartScreen';
 import BreakdownListCardScreen from '../BreakdownListCardScreen/app';
+import CheckboxInteraction from '../CheckboxInteraction/app';
 /**
  * Define the RootStackParamList.
  *
@@ -14,6 +15,7 @@ export type RootStackParamList = {
   Home: undefined; // no params
   AnimatedbarChartScreen: undefined;
   BreakdownListCardScreen: undefined;
+  CheckboxInteraction: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>({
@@ -22,6 +24,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>({
     Home: HomeScreen,
     AnimatedbarChartScreen,
     BreakdownListCardScreen,
+    CheckboxInteraction,
   },
 });
 

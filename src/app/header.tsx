@@ -12,19 +12,19 @@ export const Header: React.FC<{ scrollY: SharedValue<number> }> = ({
 }) => {
   // Background fade
   const backgroundStyle = useAnimatedStyle(() => ({
-    opacity: interpolate(scrollY.value, [0, 10], [0, 0.7], Extrapolation.CLAMP),
+    opacity: interpolate(scrollY.value, [0, 10], [0, 0.9], Extrapolation.CLAMP),
   }));
 
   // Subtitle shrink from left-middle
   const subtitleAnimatedStyle = useAnimatedStyle(() => {
     // Pivot point: left-middle of the bubble
-    const PIVOT_X = 84; // left edge
-    const PIVOT_Y = 25; // approx. half of subtitle height (adjust as needed)
+    const PIVOT_X = 35; // left edge
+    const PIVOT_Y = 60; // approx. half of subtitle height (adjust as needed)
 
     const scale = interpolate(
       scrollY.value,
       [0, 50],
-      [1, 0.5],
+      [1, 0.7],
       Extrapolation.CLAMP,
     );
     const translateX = interpolate(
@@ -49,7 +49,7 @@ export const Header: React.FC<{ scrollY: SharedValue<number> }> = ({
   // Subtitle shrink from left-middle
   const titleAnimatedStyle = useAnimatedStyle(() => {
     // Pivot point: left-middle of the bubble
-    const PIVOT_X = 35; // left edge
+    const PIVOT_X = 40; // left edge
 
     const scale = interpolate(
       scrollY.value,
@@ -118,7 +118,7 @@ export const styles = StyleSheet.create({
   backgroundOverlay: {
     backgroundColor: 'white',
     width: appWidth,
-    height: 100,
+    height: 60,
     position: 'absolute',
     top: 0,
     zIndex: -100,
