@@ -1808,6 +1808,8 @@ PODS:
     - Yoga
   - react-native-vector-icons-ant-design (12.3.0)
   - react-native-vector-icons-feather (12.3.0)
+  - react-native-vector-icons-ionicons (12.3.0)
+  - react-native-vector-icons-material-design-icons (12.3.0)
   - React-NativeModulesApple (0.81.0):
     - boost
     - DoubleConversion
@@ -2713,6 +2715,8 @@ DEPENDENCIES:
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - "react-native-vector-icons-ant-design (from `../node_modules/@react-native-vector-icons/ant-design`)"
   - "react-native-vector-icons-feather (from `../node_modules/@react-native-vector-icons/feather`)"
+  - "react-native-vector-icons-ionicons (from `../node_modules/@react-native-vector-icons/ionicons`)"
+  - "react-native-vector-icons-material-design-icons (from `../node_modules/@react-native-vector-icons/material-design-icons`)"
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-oscompat (from `../node_modules/react-native/ReactCommon/oscompat`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
@@ -2844,6 +2848,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-vector-icons/ant-design"
   react-native-vector-icons-feather:
     :path: "../node_modules/@react-native-vector-icons/feather"
+  react-native-vector-icons-ionicons:
+    :path: "../node_modules/@react-native-vector-icons/ionicons"
+  react-native-vector-icons-material-design-icons:
+    :path: "../node_modules/@react-native-vector-icons/material-design-icons"
   React-NativeModulesApple:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios"
   React-oscompat:
@@ -2963,6 +2971,8 @@ SPEC CHECKSUMS:
   react-native-safe-area-context: 6d8a7b750e496e37bda47c938320bf2c734d441f
   react-native-vector-icons-ant-design: 3764a6096f8d760e0bb6766ea762a5545f6dba1c
   react-native-vector-icons-feather: 14d6f3e1af2acefb0b4d976b226bb15b19e1db58
+  react-native-vector-icons-ionicons: ad07e944a092a5cf71b8b569d8f5ce2bf674c415
+  react-native-vector-icons-material-design-icons: c502df5b988ce85d6c7d2b7ee909818315760b82
   React-NativeModulesApple: 3f9e97a4a90eeec1ceade511f973b277632650bb
   React-oscompat: 34f3d3c06cadcbc470bc4509c717fb9b919eaa8b
   React-perflogger: 95dff8cc9901777360716cbdcb2998849f133a4f

@@ -24,6 +24,14 @@ const ListItem: React.FC<{
   scrollY: SharedValue<number>;
 }> = ({ data }) => {
   const navigation = useNavigation<RootStackNavigation>();
+
+  const descriptionStyles = data.color
+    ? { ...styles.cardDescription, color: data.color }
+    : styles.cardDescription;
+  const titleStyles = data.color
+    ? { ...styles.cardTitle, color: data.color }
+    : styles.cardTitle;
+
   return (
     <Pressable
       onPress={() => {
@@ -36,8 +44,8 @@ const ListItem: React.FC<{
           { backgroundColor: data.bgColor, height: ITEM_HEIGHT - 16 },
         ]}
       >
-        <Text style={styles.cardTitle}>{data.title}</Text>
-        <Text style={styles.cardDescription}>{data.description}</Text>
+        <Text style={titleStyles}>{data.title}</Text>
+        <Text style={descriptionStyles}>{data.description}</Text>
       </Animated.View>
     </Pressable>
   );

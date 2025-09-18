@@ -1,0 +1,21 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/ZalandoSansExpanded-Bold.ttf",
+      "sha1": "e18e7eeda0259b6917d64d33465406eda93633da"
+    },
+    {
+      "path": "assets/fonts/ZalandoSansExpanded-Light.ttf",
+      "sha1": "01113a002073695ae4bbdefc7ee43b8afd6209dd"
+    },
+    {
+      "path": "assets/fonts/ZalandoSansExpanded-Medium.ttf",
+      "sha1": "491ef5f8f7d9649df89a406a1c8af5a927a770ce"
+    },
+    {
+      "path": "assets/fonts/ZalandoSansExpanded-Regular.ttf",
+      "sha1": "fc2f1d936e6becc1330f805c5ef5f015a2c81ec2"
+    }
+  ]
+}

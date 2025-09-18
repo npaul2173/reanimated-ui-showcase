@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		0C80B921A6F3F58F76C31292 /* libPods-HexMapsReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-HexMapsReactNative.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		260D5E12DD144A099E393866 /* ZalandoSansExpanded-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FD541C1602549AA8EDE369F /* ZalandoSansExpanded-Medium.ttf */; };
+		3C97A9F5B778494A89C2228A /* ZalandoSansExpanded-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B152D340D3F7404782C24B4D /* ZalandoSansExpanded-Light.ttf */; };
+		61C441AC67354071B851C637 /* ZalandoSansExpanded-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06B167848E944721B4BDEF2D /* ZalandoSansExpanded-Bold.ttf */; };
 		62D9290E8E7B2E8B2A7F540D /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		E8C645267ADA4DBCB63C9FCF /* ZalandoSansExpanded-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F38F22DE91042DAA8244CD6 /* ZalandoSansExpanded-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06B167848E944721B4BDEF2D /* ZalandoSansExpanded-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ZalandoSansExpanded-Bold.ttf"; path = "../assets/fonts/ZalandoSansExpanded-Bold.ttf"; sourceTree = "<group>"; };
 		0E5769702E79B06E00C9FF2C /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = "../node_modules/@react-native-vector-icons/ant-design/fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		0E5769722E79B0A300C9FF2C /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = "../node_modules/@react-native-vector-icons/ant-design/fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* HexMapsReactNative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HexMapsReactNative.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,10 +27,13 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = HexMapsReactNative/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = HexMapsReactNative/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-HexMapsReactNative.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexMapsReactNative.debug.xcconfig"; path = "Target Support Files/Pods-HexMapsReactNative/Pods-HexMapsReactNative.debug.xcconfig"; sourceTree = "<group>"; };
+		3FD541C1602549AA8EDE369F /* ZalandoSansExpanded-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ZalandoSansExpanded-Medium.ttf"; path = "../assets/fonts/ZalandoSansExpanded-Medium.ttf"; sourceTree = "<group>"; };
+		4F38F22DE91042DAA8244CD6 /* ZalandoSansExpanded-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ZalandoSansExpanded-Regular.ttf"; path = "../assets/fonts/ZalandoSansExpanded-Regular.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-HexMapsReactNative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexMapsReactNative.release.xcconfig"; path = "Target Support Files/Pods-HexMapsReactNative/Pods-HexMapsReactNative.release.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-HexMapsReactNative.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HexMapsReactNative.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = HexMapsReactNative/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = HexMapsReactNative/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B152D340D3F7404782C24B4D /* ZalandoSansExpanded-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ZalandoSansExpanded-Light.ttf"; path = "../assets/fonts/ZalandoSansExpanded-Light.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -79,6 +87,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				964F638826F2425A8BB7F2A0 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -91,6 +100,18 @@
 				13B07F961A680F5B00A75B9A /* HexMapsReactNative.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		964F638826F2425A8BB7F2A0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				06B167848E944721B4BDEF2D /* ZalandoSansExpanded-Bold.ttf */,
+				B152D340D3F7404782C24B4D /* ZalandoSansExpanded-Light.ttf */,
+				3FD541C1602549AA8EDE369F /* ZalandoSansExpanded-Medium.ttf */,
+				4F38F22DE91042DAA8244CD6 /* ZalandoSansExpanded-Regular.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -165,6 +186,10 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				62D9290E8E7B2E8B2A7F540D /* PrivacyInfo.xcprivacy in Resources */,
+				61C441AC67354071B851C637 /* ZalandoSansExpanded-Bold.ttf in Resources */,
+				3C97A9F5B778494A89C2228A /* ZalandoSansExpanded-Light.ttf in Resources */,
+				260D5E12DD144A099E393866 /* ZalandoSansExpanded-Medium.ttf in Resources */,
+				E8C645267ADA4DBCB63C9FCF /* ZalandoSansExpanded-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,13 +220,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HexMapsReactNative/Pods-HexMapsReactNative-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HexMapsReactNative/Pods-HexMapsReactNative-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -238,13 +259,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HexMapsReactNative/Pods-HexMapsReactNative-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HexMapsReactNative/Pods-HexMapsReactNative-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

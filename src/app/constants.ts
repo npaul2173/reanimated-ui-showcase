@@ -5,13 +5,15 @@ export type ScreensListProps = {
   title: string;
   description: string;
   bgColor: string;
+  color?: string;
 };
 export const listData: ScreensListProps[] = [
   {
     navigationKey: 'CheckboxInteraction',
     title: 'Checkbox interaction',
     description: 'Play with custom checkboxes and see real-time state changes.',
-    bgColor: '#DB2777', // red-500
+    bgColor: '#D7EC29', // red-500
+    color: '#000000',
   },
   {
     navigationKey: 'AnimatedbarChartScreen',
