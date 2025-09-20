@@ -9,12 +9,20 @@ export type ScreensListProps = {
 };
 export const listData: ScreensListProps[] = [
   {
+    navigationKey: 'StoryList',
+    title: 'Story List',
+    description:
+      'An accordian looking card than expands to reveal detailed breakdowns',
+    bgColor: '#21457aff', // red-500
+  },
+  {
     navigationKey: 'CheckboxInteraction',
     title: 'Checkbox interaction',
     description: 'Play with custom checkboxes and see real-time state changes.',
     bgColor: '#D7EC29', // red-500
     color: '#000000',
   },
+
   {
     navigationKey: 'AnimatedbarChartScreen',
     title: 'Bar Animation',
