@@ -6,6 +6,7 @@ import AnimatedbarChartScreen from '../AnimatedbarChartScreen';
 import BreakdownListCardScreen from '../BreakdownListCardScreen/app';
 import CheckboxInteraction from '../CheckboxInteraction/app';
 import StoryList from '../StoryList/app';
+import leaderBoard from '../LeaderBoard/app';
 /**
  * Define the RootStackParamList.
  *
@@ -18,6 +19,7 @@ export type RootStackParamList = {
   BreakdownListCardScreen: undefined;
   CheckboxInteraction: undefined;
   StoryList: undefined;
+  leaderBoard: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>({
@@ -28,6 +30,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>({
     BreakdownListCardScreen,
     CheckboxInteraction,
     StoryList,
+    leaderBoard,
   },
 });
 

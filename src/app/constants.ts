@@ -9,6 +9,12 @@ export type ScreensListProps = {
 };
 export const listData: ScreensListProps[] = [
   {
+    navigationKey: 'leaderBoard',
+    title: 'Leader board',
+    description: 'Displays top users in a leaderboard format',
+    bgColor: '#FD5919', // red-500
+  },
+  {
     navigationKey: 'StoryList',
     title: 'Story List',
     description:
