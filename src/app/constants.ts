@@ -30,13 +30,13 @@ export const listData: ScreensListProps[] = [
   },
 
   {
-    navigationKey: 'AnimatedbarChartScreen',
+    navigationKey: 'AnimatedbarChart',
     title: 'Bar Animation',
     description: 'Watch data come alive with smooth, dynamic bar animations.',
     bgColor: '#10B981', // red-500
   },
   {
-    navigationKey: 'BreakdownListCardScreen',
+    navigationKey: 'BreakdownListCard',
     title: 'Breakdown  List',
     description:
       'An accordian looking card than expands to reveal detailed breakdowns',
