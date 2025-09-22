@@ -1,32 +1,57 @@
-import MaterialDesignIcons from '@react-native-vector-icons/material-design-icons';
-import { Animated, StyleSheet, Text, View } from 'react-native';
+import {
+  Animated,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { appColors, PADDING_HORIZONTAL_CONTAIN } from '../../constants';
 
-export const Header: React.FC<{ onBackPress: () => void }> = () => {
+export const Header: React.FC<{ onProfilePress: () => void }> = ({
+  onProfilePress,
+}) => {
   return (
-    <Animated.View
-      onTouchEnd={() => {
-        // navigation.goBack();
-      }}
-      // entering={FadeInRight.delay(300)}
-      style={styles.appheader}
-    >
-      <View
+    <View style={styles.appheader}>
+      <TouchableOpacity
+        onPress={onProfilePress}
         style={{
-          //   backgroundColor: 'black',
           position: 'absolute',
-          left: PADDING_HORIZONTAL_CONTAIN,
+          right: PADDING_HORIZONTAL_CONTAIN,
         }}
       >
-        <MaterialDesignIcons
+        <View
+          style={{
+            position: 'absolute',
+            top: -5,
+            left: -5,
+            width: 50,
+            height: 50,
+            borderWidth: 2,
+            borderColor: appColors.white,
+            // backgroundColor: appColors.orange002,
+            borderRadius: 99,
+          }}
+        />
+        <Image
+          style={{
+            width: 40,
+            height: 40,
+            backgroundColor: appColors.orange002,
+            borderRadius: 99,
+          }}
+          resizeMode="contain"
+          source={require('../../images/user009.png')}
+        />
+        {/* <MaterialDesignIcons
           name="arrow-left-thin"
           size={40}
           color={appColors.white}
-        />
-      </View>
+        /> */}
+      </TouchableOpacity>
 
       <Text style={styles.title}>Leaderboard</Text>
-    </Animated.View>
+    </View>
   );
 };
 

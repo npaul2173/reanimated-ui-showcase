@@ -2,6 +2,22 @@
   "migIndex": 1,
   "data": [
     {
+      "path": "assets/fonts/Poppins-Bold.ttf",
+      "sha1": "875cf0cecd647bcf22e79d633d868c1b1ec98dfa"
+    },
+    {
+      "path": "assets/fonts/Poppins-Light.ttf",
+      "sha1": "e247a92158e112f8bf7b638c8d95381d66b00dbb"
+    },
+    {
+      "path": "assets/fonts/Poppins-Medium.ttf",
+      "sha1": "283f21b44efbdbf276ba802be2d949a36bbc4233"
+    },
+    {
+      "path": "assets/fonts/Poppins-Regular.ttf",
+      "sha1": "fdd3002e7d814ee47c1c1b8487c72c6bbb3a2d00"
+    },
+    {
       "path": "assets/fonts/ZalandoSansExpanded-Bold.ttf",
       "sha1": "e18e7eeda0259b6917d64d33465406eda93633da"
     },
@@ -16,6 +32,10 @@
     {
       "path": "assets/fonts/ZalandoSansExpanded-Regular.ttf",
       "sha1": "fc2f1d936e6becc1330f805c5ef5f015a2c81ec2"
+    },
+    {
+      "path": "assets/fonts/index.ts",
+      "sha1": "8bbaa2f185ad668beac159f41b95f5c2ff29c2a3"
     }
   ]
 }

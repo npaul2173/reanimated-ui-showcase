@@ -1,11 +1,12 @@
 // AnimatedbarChart.tsx
 import React, { useState } from 'react';
-import { StyleSheet } from 'react-native';
+import { StatusBar, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {
   WeeklyTopLeaderData,
   allTimePlayerStats,
   allTimeTopLeaderData,
+  appColors,
   weeklyPlayerStats,
   yearlyPlayerStats,
   yearlyTopLeaderData,
@@ -14,6 +15,8 @@ import { Header } from './Header';
 import { LeaderGraph } from './LeaderGraph';
 import { TabBar } from './TabBar';
 import { BottomSheet } from './BottomSheet';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { LeaderBoardStackParamsList } from '../app';
 
 // Select Leader Graph data based on tab
 const getLeaderData = (tabState: string) => {
@@ -39,31 +42,43 @@ const getPlayerStats = (tabState: string) => {
   }
 };
 
-function LeaderBoardScreen(): React.ReactElement {
+type Props = NativeStackScreenProps<
+  LeaderBoardStackParamsList,
+  'LeaderBoardScreen'
+>;
+
+const LeaderBoardScreen: React.FC<Props> = ({ navigation }) => {
   const [tabState, setTabState] = useState<'Weekly' | 'Yearly' | 'All Time'>(
     'Weekly',
   );
 
   const playerStats = getPlayerStats(tabState);
   const topLeaderStats = getLeaderData(tabState);
-
   console.log({ playerStats, topLeaderStats, tabState });
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header onBackPress={() => {}} />
+      <StatusBar
+        backgroundColor={appColors.orange}
+        barStyle={'light-content'}
+      />
+      <Header
+        onProfilePress={() => {
+          navigation.navigate('ProfileScreen');
+        }}
+      />
       {/* @ts-ignore */}
       <TabBar onTabChange={setTabState} />
       <LeaderGraph data={topLeaderStats || []} />
       <BottomSheet playerStats={playerStats || []} />
     </SafeAreaView>
   );
-}
+};
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FF591B',
+    backgroundColor: appColors.orange,
     // justifyContent: 'center',
     // alignItems: 'center',
   },

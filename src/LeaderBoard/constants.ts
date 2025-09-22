@@ -5,6 +5,9 @@ export const appColors = {
   black: '#000000',
   wheat: '#fde7daff',
   wheatDark: '#fddfcfff',
+  wheatDarker: '#ecd4c8ff',
+  grey003: '#e2e2e2ff',
+  yellowGolden: '#ffcf5fff',
 };
 
 export type TopLeaderDataProps = {
@@ -26,6 +29,63 @@ export type PlayerStat = {
 
 export const PADDING_HORIZONTAL_CONTAIN = 16;
 export const TOTAL_POINTS = 500;
+
+export type CardDataProps = {
+  id: number;
+  backgroundColor: string;
+  title: string;
+  description: string;
+  image: any;
+};
+
+export const dataArray: CardDataProps[] = [
+  {
+    id: 1,
+    backgroundColor: '#98e47cff',
+    title: 'Food and cooking',
+    description: `Learn recipies and culinary\n tradition in foreign languages`,
+    image: require('./ProfileScreen/images/pizzaSlice.png'),
+  },
+  {
+    id: 2,
+    backgroundColor: '#FFB7D5',
+    title: 'Travelling',
+    description: 'Expand your vocabulary\n for adventures abroad',
+    image: require('./ProfileScreen/images/suitCase.png'),
+  },
+  {
+    id: 3,
+    backgroundColor: '#BCD0FD',
+    title: 'Sports and Activities',
+    description: 'Master the terminology of\n sports in foreign languages',
+    image: require('./ProfileScreen/images/basketBall.png'),
+  },
+];
+
+export const streaksData = [
+  { day: '1' },
+  { day: '2' },
+  { day: '3' },
+  { day: '4' },
+  { day: '5' },
+  { day: '6' },
+  { day: '7' },
+  { day: '8' },
+  { day: '9' },
+  { day: '10' },
+  { day: '12' },
+  { day: '13' },
+  { day: '14' },
+  { day: '15' },
+];
+export const flags = [
+  { image: require('./ProfileScreen/images/flag001.png') },
+  { image: require('./ProfileScreen/images/flag002.png') },
+  { image: require('./ProfileScreen/images/flag003.png') },
+  { image: require('./ProfileScreen/images/flag004.png') },
+  { image: require('./ProfileScreen/images/flag005.png') },
+  { image: require('./ProfileScreen/images/flag006.png') },
+];
 
 export const weeklyPlayerStats: PlayerStat[] = [
   {
