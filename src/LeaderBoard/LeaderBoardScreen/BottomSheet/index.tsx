@@ -12,9 +12,10 @@ import {
   PADDING_HORIZONTAL_CONTAIN,
   PlayerStat,
 } from '../../constants';
+import Animated, { FadeIn } from 'react-native-reanimated';
 
 const { width: appWidth, height: appHeight } = Dimensions.get('screen');
-
+export const BOTTOM_SHEET_HEIGHT = appHeight * 0.36;
 export const BottomSheet: React.FC<{ playerStats: PlayerStat[] }> = ({
   playerStats,
 }) => {
@@ -34,10 +35,13 @@ const UserStats: React.FC<{ playerStats: PlayerStat[] }> = ({
       <View style={styles.headerSpacer} />
 
       {/* Base */}
-      {playerStats.map(item => {
+      {playerStats.map((item, index) => {
         const isPlayerDownTrend = item.state === 'down';
         return (
-          <View key={item.id}>
+          <Animated.View
+            entering={index < 6 ? FadeIn.delay(400 + 50 * index) : undefined}
+            key={item.id}
+          >
             <View style={styles.rowContainer}>
               {/* Left section */}
               <View style={styles.playerInfo}>
@@ -67,7 +71,7 @@ const UserStats: React.FC<{ playerStats: PlayerStat[] }> = ({
 
             {/* Divider */}
             <View style={styles.divider} />
-          </View>
+          </Animated.View>
         );
       })}
 
@@ -80,7 +84,7 @@ const UserStats: React.FC<{ playerStats: PlayerStat[] }> = ({
 export const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: appHeight * 0.36,
+    height: BOTTOM_SHEET_HEIGHT,
     position: 'absolute',
     bottom: 0,
     borderTopEndRadius: 20,

@@ -3,8 +3,8 @@ export const appColors = {
   orange002: '#FF7B48',
   white: '#FFFFFF',
   black: '#000000',
-  wheat: '#fde7daff',
-  wheatDark: '#fddfcfff',
+  wheat: '#fffaf7ff',
+  wheatDark: '#ffede3ff',
   wheatDarker: '#ecd4c8ff',
   grey003: '#e2e2e2ff',
   yellowGolden: '#ffcf5fff',
@@ -298,7 +298,7 @@ export const allTimeTopLeaderData: TopLeaderDataProps[] = [
   {
     id: 'pwid9572',
     name: 'Mary clark',
-    points: 227,
+    points: 270,
     position: 3,
     profilePicture: require('./images/user003.png'),
   },
@@ -345,7 +345,7 @@ export const yearlyTopLeaderData: TopLeaderDataProps[] = [
   {
     id: 'yrld1093',
     name: 'Sophia Johnson',
-    points: 200,
+    points: 310,
     position: 3,
     profilePicture: require('./images/user005.png'),
   },

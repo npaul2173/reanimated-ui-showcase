@@ -15,6 +15,7 @@ import {
 } from '../../constants';
 import Animated, {
   Easing,
+  interpolate,
   SharedValue,
   useAnimatedStyle,
   useSharedValue,
@@ -22,6 +23,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { useEffect, useRef } from 'react';
+import { BOTTOM_SHEET_HEIGHT } from '../BottomSheet';
 
 const { width: appWidth } = Dimensions.get('screen');
 export const SPACING = 16;
@@ -50,15 +52,6 @@ const Leaderbar: React.FC<{ item: TopLeaderDataProps }> = ({ item }) => {
   const isFirstMount = useRef(true);
 
   useEffect(() => {
-    // Animate on mount
-    // height.value = withDelay(
-    //   100,
-    //   withTiming((item.points / TOTAL_POINTS) * LEADER_BAR_HEIGHT, {
-    //     duration: 1000,
-    //     easing: Easing.out(Easing.exp),
-    //   }),
-    // );
-
     const targetHeight = (item.points / TOTAL_POINTS) * LEADER_BAR_HEIGHT;
 
     if (isFirstMount.current) {
@@ -83,7 +76,7 @@ const Leaderbar: React.FC<{ item: TopLeaderDataProps }> = ({ item }) => {
   const animatedStyle = useAnimatedStyle(() => {
     return {
       height: height.value,
-      transform: [{ translateY: -height.value }],
+      // transform: [{ translateY: -height.value }],
     };
   });
 
@@ -91,7 +84,13 @@ const Leaderbar: React.FC<{ item: TopLeaderDataProps }> = ({ item }) => {
     <View style={{ alignItems: 'center' }}>
       <UserView item={item} sharedValue={height} />
       <PointView points={item.points} sharedValue={height} />
-      <Animated.View style={[styles.leaderBar, animatedStyle]}>
+      <Animated.View
+        style={[
+          styles.leaderBar,
+          animatedStyle,
+          // { height: (item.points / TOTAL_POINTS) * LEADER_BAR_HEIGHT },
+        ]}
+      >
         <Text style={styles.leaderBarPointInnerTitle}>{item.position}</Text>
       </Animated.View>
     </View>
@@ -105,7 +104,7 @@ const PointView: React.FC<{
 }> = ({ points, sharedValue }) => {
   const animatedStyle = useAnimatedStyle(() => {
     return {
-      transform: [{ translateY: -sharedValue.value - POINT_BAR_POINTS_GAP }],
+      opacity: interpolate(sharedValue.value, [0, 1], [0, 1]),
     };
   });
 
@@ -115,19 +114,22 @@ const PointView: React.FC<{
     </Animated.View>
   );
 };
+const PROFILE_AVATAR_SIZE = 50;
 
-const USER_VIEW_GAP = 20;
 const UserView: React.FC<{
   item: TopLeaderDataProps;
   sharedValue: SharedValue<number>;
 }> = ({ item, sharedValue }) => {
   const animatedStyle = useAnimatedStyle(() => {
     return {
-      transform: [{ translateY: -sharedValue.value - USER_VIEW_GAP }],
+      opacity: interpolate(sharedValue.value, [0, 1], [0, 1]),
     };
   });
 
-  const profileImageStyles: StyleProp<ImageStyle> = { height: 50, width: 50 };
+  const profileImageStyles: StyleProp<ImageStyle> = {
+    height: PROFILE_AVATAR_SIZE,
+    width: PROFILE_AVATAR_SIZE,
+  };
   return (
     <Animated.View style={[styles.userViewContainer, animatedStyle]}>
       <Image
@@ -150,17 +152,27 @@ const UserView: React.FC<{
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: LEADER_BAR_HEIGHT + 150,
-    justifyContent: 'flex-end',
     alignItems: 'center',
+    position: 'absolute',
+    // paddingTop: 50,
+    bottom: BOTTOM_SHEET_HEIGHT,
   },
   leaderBarContainer: {
     flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'flex-end', // 👈 this aligns bars to the bottom
     gap: SPACING,
-    top: 200,
+    height:
+      LEADER_BAR_HEIGHT +
+      POINT_BAR_POINTS_GAP +
+      30 + // POINTS VIEW SIZE - APPROX
+      POINT_BAR_POINTS_GAP +
+      PROFILE_AVATAR_SIZE, // 👈 give container the max height
   },
   leaderBar: {
-    borderRadius: 10,
+    // borderRadius: 10,
+    borderTopEndRadius: 20,
+    borderTopStartRadius: 20,
     width: BAR_WIDTH,
     height: 200,
     backgroundColor: appColors.orange002,
@@ -181,6 +193,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 3,
     borderRadius: 20,
+    marginBottom: POINT_BAR_POINTS_GAP,
   },
   userViewContainer: {
     // backgroundColor: 'green',
@@ -195,7 +208,6 @@ const styles = StyleSheet.create({
     fontWeight: 300,
     width: BAR_WIDTH,
     textAlign: 'center',
-    // backgroundColor: 'wheat',
     color: appColors.white,
   },
 });

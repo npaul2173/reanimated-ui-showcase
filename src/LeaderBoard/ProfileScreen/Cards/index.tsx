@@ -15,7 +15,7 @@ export const Cards = () => {
         <Animated.View
           entering={FadeInDown.delay(1500 + 300 * index)}
           key={item.id}
-          style={[styles.cardWrapper, { top: 110 * index, zIndex: index }]}
+          style={[styles.cardWrapper, { top: 100 * index, zIndex: index }]}
         >
           <CardView item={item} />
         </Animated.View>
