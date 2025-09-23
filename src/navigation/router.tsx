@@ -7,6 +7,7 @@ import BreakdownListCard from '../BreakdownListCard/app';
 import CheckboxInteraction from '../CheckboxInteraction/app';
 import StoryList from '../StoryList/app';
 import leaderBoard from '../LeaderBoard/app';
+import curvedTransitionMicroCards from '../curved-transition-micro-cards/app';
 /**
  * Define the RootStackParamList.
  *
@@ -20,6 +21,7 @@ export type RootStackParamList = {
   CheckboxInteraction: undefined;
   StoryList: undefined;
   leaderBoard: undefined;
+  curvedTransitionMicroCards: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>({
@@ -31,6 +33,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>({
     CheckboxInteraction,
     StoryList,
     leaderBoard,
+    curvedTransitionMicroCards,
   },
 });
 

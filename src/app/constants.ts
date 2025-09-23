@@ -9,6 +9,13 @@ export type ScreensListProps = {
 };
 export const listData: ScreensListProps[] = [
   {
+    navigationKey: 'curvedTransitionMicroCards',
+    title: 'Curved Cards',
+    description:
+      'Displays animated micro cards with curved transitions for dynamic visual flow',
+    bgColor: '#219cc2ff', // red-500
+  },
+  {
     navigationKey: 'leaderBoard',
     title: 'Leader board',
     description: 'Displays top users in a leaderboard format',
