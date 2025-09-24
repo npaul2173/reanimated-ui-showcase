@@ -1,71 +1,92 @@
+import React, { useRef, useState } from 'react';
 import {
   Dimensions,
   FlatList,
   StatusBar,
+  StyleProp,
   StyleSheet,
   View,
+  ViewStyle,
 } from 'react-native';
-import Video from 'react-native-video';
+import Animated, {
+  AnimatedStyle,
+  FadeIn,
+  FadeOut,
+  useAnimatedScrollHandler,
+  useSharedValue,
+} from 'react-native-reanimated';
+
+import { scheduleOnRN } from 'react-native-worklets';
 import { travelInfoItems } from '../constants';
 import { CARD_WIDTH, TravelExperienceCard } from './TravelExperienceCard';
 
-const { width: appWidth, height: appHeight } = Dimensions.get('screen');
+const { width: appWidth } = Dimensions.get('screen');
+const SPACING = 30; // consistent spacing
 
+const flatListStyles: StyleProp<AnimatedStyle<StyleProp<ViewStyle>>> = {
+  flexGrow: 0,
+  paddingVertical: 40,
+};
 export const Screen = () => {
+  const flatListRef = useRef<FlatList>(null);
+  const progress = useSharedValue(0); // <--- shared value
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+
+  // Animated scroll handler
+  const scrollHandler = useAnimatedScrollHandler({
+    onScroll: event => {
+      const offsetX = event.contentOffset.x;
+      const offsetCAlculated = offsetX / (CARD_WIDTH + SPACING); // fractional index
+      progress.value = offsetCAlculated; // fractional index
+      scheduleOnRN(setActiveIndex, Math.round(offsetCAlculated));
+    },
+  });
+
   return (
-    <View style={[styles.container]}>
+    <View style={styles.container}>
       <StatusBar translucent hidden />
 
-      <View style={{ position: 'absolute', zIndex: 0 }}>
-        <Video
-          repeat
-          source={require('../video/clouds001.mp4')}
-          style={{ width: appWidth, height: appHeight, aspectRatio: 16 / 9 }}
-          controls={false}
-        />
-      </View>
-      <FlatList
+      {/* Background Image */}
+      <Animated.Image
+        key={`activeIndex-${activeIndex}`}
+        entering={FadeIn.duration(500)}
+        exiting={FadeOut.duration(500)}
+        source={travelInfoItems[activeIndex].gallery[0].image}
+        style={styles.backgroundImage}
+      />
+
+      {/* Animated FlatList */}
+      <Animated.FlatList
+        ref={flatListRef}
+        data={travelInfoItems}
         horizontal
-        showsHorizontalScrollIndicator={false}
-        style={{ flexGrow: 0, paddingVertical: 30 }}
         pagingEnabled
-        decelerationRate={'fast'}
-        snapToInterval={CARD_WIDTH + 30}
+        showsHorizontalScrollIndicator={false}
+        decelerationRate="fast"
+        snapToInterval={CARD_WIDTH + SPACING}
+        style={flatListStyles}
+        keyExtractor={(_, index) => index.toString()}
+        renderItem={({ item }) => <TravelExperienceCard data={item} />}
         contentContainerStyle={{
-          gap: 30,
+          gap: SPACING,
           paddingHorizontal: (appWidth - CARD_WIDTH) / 2,
         }}
-        data={travelInfoItems}
-        renderItem={() => {
-          return <TravelExperienceCard />;
-        }}
+        onScroll={scrollHandler}
+        scrollEventThrottle={16}
       />
-      {/* <TravelExperienceCard /> */}
-      {/* </ImageBackground> */}
     </View>
   );
 };
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // paddingTop: 40,
-    backgroundColor: '#eaeaeaff',
+    backgroundColor: '#eaeaea',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  subcontainer: {
-    flex: 1,
-    width: '100%',
-    // padding: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  title: {
-    fontWeight: 700,
-    fontSize: 40,
-    color: '#333333',
-    letterSpacing: -2,
-    paddingBottom: 20,
+  backgroundImage: {
+    ...StyleSheet.absoluteFillObject,
+    resizeMode: 'cover',
   },
 });

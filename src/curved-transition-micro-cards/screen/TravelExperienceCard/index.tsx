@@ -1,25 +1,43 @@
 import MaterialDesignIcons from '@react-native-vector-icons/material-design-icons';
-import React from 'react';
-import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import {
+  Dimensions,
+  Image,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
   Easing,
+  Extrapolation,
   interpolate,
+  interpolateColor,
   SharedValue,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
 import { fontFamily } from '../../../../assets/fonts';
-import { appColors, TravelInfoItems, travelInfoItems } from '../../constants';
+import {
+  appColors,
+  TravelImageItem,
+  TravelInfoItemProps,
+} from '../../constants';
 
+const ARROW_CARD_HEIGHT = 60;
 const { width: appWidth } = Dimensions.get('screen');
 export const CARD_WIDTH = appWidth * 0.8;
-export const TravelExperienceCard: React.FC = () => {
+
+export const TravelExperienceCard: React.FC<{ data: TravelInfoItemProps }> = ({
+  data,
+}) => {
   const progress = useSharedValue(0);
+  const [secondTextSize, setSecondTextSize] = useState({ width: 0, height: 0 });
 
   const longPressGesture = Gesture.LongPress()
-    .minDuration(150) // hold duration in ms
+    .minDuration(150)
     .onStart(() => {
       progress.value = withTiming(1, {
         duration: 800,
@@ -33,53 +51,57 @@ export const TravelExperienceCard: React.FC = () => {
       });
     });
 
-  const containerAnimatedStyles = useAnimatedStyle(() => {
-    return {
-      transform: [{ scale: interpolate(progress.value, [0, 1], [1, 0.97]) }],
-    };
-  });
+  const containerAnimatedStyles = useAnimatedStyle(() => ({
+    transform: [{ scale: interpolate(progress.value, [0, 1], [1, 0.97]) }],
+  }));
 
   const animateIconBoxStyles = useAnimatedStyle(() => ({
-    // opacity: interpolate(progress.value, [0, 1], [1, 0]), // fade out
     transform: [
       {
-        translateX: interpolate(progress.value, [0, 1], [-60, 0]), // slide left out
+        translateX: interpolate(
+          progress.value,
+          [0, 1],
+          [secondTextSize.width - ARROW_CARD_HEIGHT, secondTextSize.width],
+          Extrapolation.CLAMP,
+        ),
       },
     ],
   }));
 
+  const animatedHikeLabel = useAnimatedStyle(() => {
+    return {
+      color: interpolateColor(
+        progress.value,
+        [0, 1], // input range
+        [appColors.black, data.accentColor], // output colors
+      ),
+    };
+  });
+
   return (
     <GestureDetector gesture={longPressGesture}>
       <Animated.View style={[styles.card, containerAnimatedStyles]}>
+        {/* Title */}
         <View>
-          <Text style={styles.title}>Mountain</Text>
-          <View
-            style={{
-              marginTop: -20,
-              flexDirection: 'row',
-              gap: 10,
-              alignItems: 'center',
-            }}
-          >
-            <Text
-              style={[
-                styles.title,
-                { color: 'red', position: 'absolute', zIndex: 200 },
-              ]}
+          <Text style={styles.title}>{data.title}</Text>
+
+          <View style={styles.hikeRow}>
+            <Animated.Text
+              style={[styles.hikeLabel, animatedHikeLabel]}
+              onLayout={event => {
+                const { width, height } = event.nativeEvent.layout;
+                setSecondTextSize({ width: width + 20, height });
+              }}
             >
-              Hike
-            </Text>
-            <View
-              style={{ transform: [{ translateX: 100 }], flexDirection: 'row' }}
-            >
+              {data.title2}
+            </Animated.Text>
+
+            <View style={styles.rightArrowContainer}>
               <Animated.View
                 style={[
-                  {
-                    height: 60,
-                    width: 60,
-                    backgroundColor: appColors.blue001,
-                  },
+                  styles.iconBox,
                   animateIconBoxStyles,
+                  { backgroundColor: data.accentColor },
                 ]}
               >
                 <MaterialDesignIcons
@@ -89,38 +111,24 @@ export const TravelExperienceCard: React.FC = () => {
                 />
               </Animated.View>
 
-              <Animated.View style={[animateIconBoxStyles]}>
+              <Animated.View style={animateIconBoxStyles}>
                 <MaterialDesignIcons name="arrow-right" size={60} />
               </Animated.View>
             </View>
 
-            <View
-              style={{
-                position: 'absolute',
-                flexDirection: 'row',
-                gap: 60,
-              }}
-            >
+            {/* White background placeholders */}
+            <View style={styles.whiteBoxesRow}>
               <View
-                style={{
-                  backgroundColor: appColors.white,
-                  width: 100,
-                  height: 62,
-                }}
+                style={[styles.whiteBoxLarge, { width: secondTextSize.width }]}
               />
-              <View
-                style={{
-                  backgroundColor: appColors.white,
-                  width: 60,
-                  height: 62,
-                }}
-              />
+              <View style={styles.whiteBoxSmall} />
             </View>
           </View>
         </View>
 
+        {/* Micro cards */}
         <View style={styles.microCardRow}>
-          {travelInfoItems.map((item, index) => (
+          {data.gallery.map((item, index) => (
             <MicroCard
               key={item.id}
               progress={progress}
@@ -130,27 +138,15 @@ export const TravelExperienceCard: React.FC = () => {
           ))}
         </View>
 
-        <View>
-          <View style={{ flexDirection: 'row', gap: 20 }}>
-            <View style={styles.infoContainer}>
-              <MaterialDesignIcons name="map-check-outline" size={15} />
-              <Text style={styles.infoText}>8 hours</Text>
-            </View>
-
-            <View style={styles.infoContainer}>
-              <MaterialDesignIcons name="clock-time-two-outline" size={15} />
-              <Text style={styles.infoText}>8 kms</Text>
-            </View>
-
-            <View style={styles.infoContainer}>
-              <MaterialDesignIcons name="lightning-bolt-outline" size={15} />
-              <Text style={styles.infoText}>Medium level</Text>
-            </View>
+        {/* Info Row */}
+        <View style={{ gap: 10 }}>
+          <View style={styles.infoRow}>
+            <InfoItem icon="map-check-outline" text="8 hours" />
+            <InfoItem icon="clock-time-two-outline" text="8 kms" />
+            <InfoItem icon="lightning-bolt-outline" text="Medium level" />
           </View>
-          <Text style={{ fontFamily: fontFamily.poppins.light }}>
-            Hiking on a mountain blends physical challenge with natural beauty,
-            offering sweeping views.
-          </Text>
+
+          <Text style={styles.description}>{data.description}</Text>
         </View>
       </Animated.View>
     </GestureDetector>
@@ -160,15 +156,10 @@ export const TravelExperienceCard: React.FC = () => {
 const MicroCard: React.FC<{
   progress: SharedValue<number>;
   index: number;
-  item: TravelInfoItems;
+  item: TravelImageItem;
 }> = ({ progress, index, item }) => {
   const animatedStyle = useAnimatedStyle(() => {
-    const rotateDegree = interpolate(
-      progress.value,
-      [0, 1],
-      [0, -index * 30],
-      //   Extrapolation.CLAMP,
-    );
+    const rotateDegree = interpolate(progress.value, [0, 1], [0, -index * 30]);
 
     return {
       transform: [
@@ -176,11 +167,15 @@ const MicroCard: React.FC<{
           translateX: interpolate(
             progress.value,
             [0, 1],
-            [-(index * 90), -(index * 20)],
+            [-(index * 60), -(index * 10)],
           ),
         },
         {
-          translateY: interpolate(progress.value, [0, 1], [0, -(index * 30)]),
+          translateY: interpolate(
+            progress.value,
+            [0, 1],
+            [-20, -(Math.pow(2, index) * 30) + 50],
+          ),
         },
         { rotateZ: `${rotateDegree}deg` },
       ],
@@ -197,6 +192,14 @@ const MicroCard: React.FC<{
     </Animated.View>
   );
 };
+
+const InfoItem: React.FC<{ icon: string; text: string }> = ({ icon, text }) => (
+  <View style={styles.infoContainer}>
+    {/* @ts-ignore */}
+    <MaterialDesignIcons name={icon} size={15} />
+    <Text style={styles.infoText}>{text}</Text>
+  </View>
+);
 
 const styles = StyleSheet.create({
   card: {
@@ -216,6 +219,42 @@ const styles = StyleSheet.create({
     letterSpacing: -2,
     fontFamily: fontFamily.poppins.medium,
   },
+  hikeRow: {
+    marginTop: Platform.OS === 'ios' ? -10 : -20,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  hikeLabel: {
+    position: 'absolute',
+    zIndex: 200,
+    fontSize: 50,
+    // width: 120,
+    fontFamily: fontFamily.poppins.medium,
+  },
+  rightArrowContainer: {
+    flexDirection: 'row',
+  },
+  iconBox: {
+    height: ARROW_CARD_HEIGHT,
+    width: ARROW_CARD_HEIGHT,
+  },
+  whiteBoxesRow: {
+    position: 'absolute',
+    flexDirection: 'row',
+    gap: ARROW_CARD_HEIGHT,
+  },
+  whiteBoxLarge: {
+    backgroundColor: appColors.white,
+    // backgroundColor: '#7373b381', // this is for debug purpose
+    width: 100,
+    height: 62,
+  },
+  whiteBoxSmall: {
+    backgroundColor: appColors.white,
+    // backgroundColor: '#7373b37b', // this is for debug purpose
+    width: 60,
+    height: 62,
+  },
   microCardRow: {
     flexDirection: 'row',
     marginTop: 20,
@@ -224,7 +263,6 @@ const styles = StyleSheet.create({
     height: 130,
     width: 100,
     borderRadius: 20,
-    // overflow: 'hidden',
     shadowColor: '#0D3B43',
     shadowOpacity: 0.3,
     shadowOffset: { width: 0, height: 13 },
@@ -238,6 +276,10 @@ const styles = StyleSheet.create({
     borderWidth: 7,
     borderColor: appColors.white,
   },
+  infoRow: {
+    flexDirection: 'row',
+    gap: 20,
+  },
   infoContainer: {
     flexDirection: 'row',
     gap: 5,
@@ -245,5 +287,8 @@ const styles = StyleSheet.create({
   infoText: {
     fontSize: 12,
     fontFamily: fontFamily.poppins.regular,
+  },
+  description: {
+    fontFamily: fontFamily.poppins.light,
   },
 });
