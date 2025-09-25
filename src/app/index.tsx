@@ -93,7 +93,7 @@ export const HomeScreen: React.FC = () => {
         ItemSeparatorComponent={seperatorComponent}
         ListFooterComponent={footerComponent}
         data={listData}
-        keyExtractor={item => item.title.toString()}
+        keyExtractor={item => item.navigationKey.toString()}
         renderItem={renderItem}
         onScroll={scrollHandler}
         scrollEventThrottle={16}
