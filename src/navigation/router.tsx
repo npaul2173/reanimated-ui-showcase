@@ -8,6 +8,7 @@ import CheckboxInteraction from '../CheckboxInteraction/app';
 import StoryList from '../StoryList/app';
 import leaderBoard from '../LeaderBoard/app';
 import curvedTransitionMicroCards from '../curved-transition-micro-cards/app';
+import appleInvites from '../apple-invites/app';
 /**
  * Define the RootStackParamList.
  *
@@ -22,6 +23,7 @@ export type RootStackParamList = {
   StoryList: undefined;
   leaderBoard: undefined;
   curvedTransitionMicroCards: undefined;
+  appleInvites: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>({
@@ -34,6 +36,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>({
     StoryList,
     leaderBoard,
     curvedTransitionMicroCards,
+    appleInvites,
   },
 });
 
