@@ -9,6 +9,15 @@ export type ScreensListProps = {
 };
 export const listData: ScreensListProps[] = [
   {
+    navigationKey: 'Omnitrix',
+    title: 'Omnitrix watch',
+    description:
+      'High-tech wristwatch of alien origin, designed by the Galvan inventor Azmuth',
+    bgColor: '#a8f729ff', // red-500
+    color: '#2E3B4C',
+  },
+
+  {
     navigationKey: 'curvedTransitionMicroCards',
     title: 'Curved Cards',
     description:
