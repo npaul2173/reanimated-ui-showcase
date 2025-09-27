@@ -9,6 +9,13 @@ import Xlr8 from '../svgs/aliens/xlr8.svg';
 import Wildmutt from '../svgs/aliens/wildmutt.svg';
 import { SvgProps } from 'react-native-svg';
 
+export const appColors = {
+  primeGreen: '#E3F326',
+  greenDarker: '#183334ff',
+  baseBlueDark: '#28314D',
+  baseBlueDarker: '#171b29ff',
+};
+
 export type AlienDataProps = {
   name: string;
   icon: React.FC<SvgProps>;

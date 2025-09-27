@@ -1,4 +1,4 @@
-import { Screen } from './src';
+import { Screen } from './src/screen';
 
 const AppContainer = () => {
   return <Screen />;

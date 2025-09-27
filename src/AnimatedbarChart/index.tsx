@@ -10,12 +10,12 @@ import { WeeklyBarChart } from './weeklyBarChart';
 
 type AnimatedbarChartNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
-  'AnimatedbarChartScreen'
+  'AnimatedbarChart'
 >;
 
 type AnimatedbarChartRouteProp = RouteProp<
   RootStackParamList,
-  'AnimatedbarChartScreen'
+  'AnimatedbarChart'
 >;
 
 type Props = {
