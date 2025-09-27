@@ -16,6 +16,12 @@ export const listData: ScreensListProps[] = [
     bgColor: '#252829ff', // red-500
   },
   {
+    navigationKey: 'appleInvites',
+    title: 'Apple invites',
+    description: 'Displays apple invites new scrollview animation',
+    bgColor: '#09100dff', // red-500
+  },
+  {
     navigationKey: 'curvedTransitionMicroCards',
     title: 'Curved Cards',
     description:

@@ -10,6 +10,7 @@ import leaderBoard from '../LeaderBoard/app';
 import curvedTransitionMicroCards from '../curved-transition-micro-cards/app';
 import voiceRoomUsersPreview from '../voice-room-users-preview/app';
 
+import appleInvites from '../apple-invites/app';
 /**
  * Define the RootStackParamList.
  *
@@ -25,6 +26,7 @@ export type RootStackParamList = {
   leaderBoard: undefined;
   curvedTransitionMicroCards: undefined;
   voiceRoomUsersPreview: undefined;
+  appleInvites: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>({
@@ -38,6 +40,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>({
     leaderBoard,
     curvedTransitionMicroCards,
     voiceRoomUsersPreview,
+    appleInvites,
   },
 });
 

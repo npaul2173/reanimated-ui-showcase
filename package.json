@@ -13,6 +13,7 @@
     "clearData": "adb shell pm clear com.hexmapsreactnative && yarn android"
   },
   "dependencies": {
+    "@animatereactnative/marquee": "^0.5.2",
     "@react-native-masked-view/masked-view": "^0.3.2",
     "@react-native-vector-icons/ant-design": "^12.3.0",
     "@react-native-vector-icons/feather": "^12.3.0",
