@@ -1,56 +1,86 @@
 import React from 'react';
-import { Pressable, View, StyleSheet, Text, ViewStyle } from 'react-native';
+import {
+  Pressable,
+  Text,
+  View,
+  ViewStyle,
+  StyleSheet,
+  GestureResponderEvent,
+} from 'react-native';
+import MaskedView from '@react-native-masked-view/masked-view';
 import LinearGradient from 'react-native-linear-gradient';
 
-type GradientBorderButtonProps = {
+type AdvancedButtonProps = {
   colors: string[];
-  onPress?: () => void;
+  onPress?: (event: GestureResponderEvent) => void;
   style?: ViewStyle;
   title: string;
   innerColor?: string; // background color of inner button
-  borderRadius?: number; // for outer & inner
-  borderWidth?: number; // width of the gradient border
+  borderRadius?: number;
+  borderWidth?: number;
+  textColor?: string;
 };
 
-export default function GradientBorderButton({
+export function AdvancedButton({
   colors,
   onPress,
   style,
-  innerColor = '#111111',
-  borderRadius = 12,
-  borderWidth = 2,
   title,
-}: GradientBorderButtonProps) {
+  borderRadius = 16,
+  borderWidth = 3,
+  textColor,
+}: AdvancedButtonProps) {
   return (
-    <LinearGradient
-      colors={colors}
-      style={[styles.outer, { borderRadius }, style]}
-    >
-      <Pressable onPress={onPress}>
-        <View
-          style={{
-            margin: borderWidth,
+    <View>
+      <Pressable
+        onPress={onPress}
+        style={[
+          StyleSheet.absoluteFill,
+          {
             borderRadius: borderRadius - borderWidth,
-            backgroundColor: innerColor,
+            margin: borderWidth,
+            backgroundColor: 'transparent',
             justifyContent: 'center',
             alignItems: 'center',
-            paddingVertical: 10,
-            paddingHorizontal: 20,
-          }}
-        >
-          <Text style={styles.text}>{title}</Text>
-        </View>
+          },
+        ]}
+      >
+        <Text style={[styles.text, { color: textColor }]}>{title}</Text>
       </Pressable>
-    </LinearGradient>
+      <MaskedView
+        style={[styles.maskedContainer, style]}
+        maskElement={
+          <View
+            pointerEvents="none"
+            style={{
+              flex: 1,
+              borderRadius,
+              borderWidth,
+              // backgroundColor: 'transparent',
+            }}
+          />
+        }
+      >
+        {/* Gradient border */}
+        <LinearGradient
+          colors={colors}
+          style={StyleSheet.absoluteFill}
+          pointerEvents="none"
+        />
+      </MaskedView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  outer: {
+  maskedContainer: {
     overflow: 'hidden',
+    width: 200,
+    height: 50,
   },
   text: {
-    color: '#fff',
     fontWeight: '600',
+    fontSize: 16,
+    color: '#ffffffff',
   },
 });
