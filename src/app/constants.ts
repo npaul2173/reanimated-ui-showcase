@@ -13,7 +13,8 @@ export const listData: ScreensListProps[] = [
     title: 'Voice room preview',
     description:
       'Displays animated micro cards with curved transitions for dynamic visual flow',
-    bgColor: '#252829ff', // red-500
+    bgColor: '#d6d6d6ff', // red-500
+    color: '#0000',
   },
   {
     navigationKey: 'appleInvites',
