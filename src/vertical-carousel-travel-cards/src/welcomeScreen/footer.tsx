@@ -19,10 +19,11 @@ export const Footer: React.FC = () => {
 
         <GradientBorderButton
           title="Get standard"
-          colors={['#9e7b43ff', '#9e7b4322']}
+          colors={['#9e7b43ff', '#00000022']}
           onPress={() => console.log('Pressed!')}
-          innerColor="#222"
-          borderRadius={16}
+          //   innerColor="#222"
+          borderWidth={1}
+          borderRadius={20}
           //   style={{ width: 200, height: 60 }}
         />
         <Text style={styles.terms}>

@@ -6,7 +6,6 @@ type GradientBorderButtonProps = {
   colors: string[];
   onPress?: () => void;
   style?: ViewStyle;
-  children?: React.ReactNode;
   title: string;
   innerColor?: string; // background color of inner button
   borderRadius?: number; // for outer & inner
@@ -17,7 +16,7 @@ export default function GradientBorderButton({
   colors,
   onPress,
   style,
-  innerColor = '#111',
+  innerColor = '#111111',
   borderRadius = 12,
   borderWidth = 2,
   title,
@@ -27,18 +26,16 @@ export default function GradientBorderButton({
       colors={colors}
       style={[styles.outer, { borderRadius }, style]}
     >
-      <Pressable
-        onPress={onPress}
-        style={{ paddingVertical: 10, paddingHorizontal: 20 }}
-      >
+      <Pressable onPress={onPress}>
         <View
           style={{
-            flex: 1,
             margin: borderWidth,
             borderRadius: borderRadius - borderWidth,
             backgroundColor: innerColor,
             justifyContent: 'center',
             alignItems: 'center',
+            paddingVertical: 10,
+            paddingHorizontal: 20,
           }}
         >
           <Text style={styles.text}>{title}</Text>
@@ -50,7 +47,6 @@ export default function GradientBorderButton({
 
 const styles = StyleSheet.create({
   outer: {
-    padding: 0,
     overflow: 'hidden',
   },
   text: {
