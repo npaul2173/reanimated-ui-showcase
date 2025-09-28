@@ -7,20 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		035B1915AAC94532BB41EF71 /* Lexend-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBF2300242AE441C9121E282 /* Lexend-Light.ttf */; };
 		09C6D5D48CA843F4A3C251AC /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB90E2DC9B3745DBAD4F083F /* Poppins-Regular.ttf */; };
 		0C80B921A6F3F58F76C31292 /* libPods-HexMapsReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-HexMapsReactNative.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		260D5E12DD144A099E393866 /* ZalandoSansExpanded-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FD541C1602549AA8EDE369F /* ZalandoSansExpanded-Medium.ttf */; };
 		3121EC23C7564344BAD771FC /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A90F4A135E3C4631B6FAB412 /* Poppins-Light.ttf */; };
 		3C97A9F5B778494A89C2228A /* ZalandoSansExpanded-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B152D340D3F7404782C24B4D /* ZalandoSansExpanded-Light.ttf */; };
+		4F054CA3D02C41978F9638F8 /* Lexend-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AAE7ECD51D94B2CBE71D18C /* Lexend-Bold.ttf */; };
+		51CF9FB2BC5D4F73B1471D79 /* index.ts in Resources */ = {isa = PBXBuildFile; fileRef = BE4828D145654F588692F251 /* index.ts */; };
+		5B60342F7C4948339D3A1518 /* Lexend-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FBBB9655FD143A88AFFC164 /* Lexend-Regular.ttf */; };
 		61C441AC67354071B851C637 /* ZalandoSansExpanded-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06B167848E944721B4BDEF2D /* ZalandoSansExpanded-Bold.ttf */; };
 		62D9290E8E7B2E8B2A7F540D /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		A3DF93A28EB94EFCA50D6CE5 /* Lexend-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1F68E5C32A84FBDB6DDA419 /* Lexend-Medium.ttf */; };
 		BF19DD97E612455F8957E6FE /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6DACFDE5B56A410A86F47EDA /* Poppins-Medium.ttf */; };
+		D971D1EA1C44488E91B189F2 /* Lexend-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9BB5AD1FAAA4ACF94F0E0FC /* Lexend-SemiBold.ttf */; };
 		E4E4455D590F4A73BB3CFDDD /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C7DC368B1154BF6B1CE1382 /* Poppins-Bold.ttf */; };
 		E8C645267ADA4DBCB63C9FCF /* ZalandoSansExpanded-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F38F22DE91042DAA8244CD6 /* ZalandoSansExpanded-Regular.ttf */; };
-		F5057D4BDF2E45E6BB9F2BDD /* index.ts in Resources */ = {isa = PBXBuildFile; fileRef = 7FA30FE276D14BDFB3901EA8 /* index.ts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,20 +36,25 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = HexMapsReactNative/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = HexMapsReactNative/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = HexMapsReactNative/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		1FBBB9655FD143A88AFFC164 /* Lexend-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lexend-Regular.ttf"; path = "../assets/fonts/Lexend-Regular.ttf"; sourceTree = "<group>"; };
 		2C7DC368B1154BF6B1CE1382 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-HexMapsReactNative.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexMapsReactNative.debug.xcconfig"; path = "Target Support Files/Pods-HexMapsReactNative/Pods-HexMapsReactNative.debug.xcconfig"; sourceTree = "<group>"; };
 		3FD541C1602549AA8EDE369F /* ZalandoSansExpanded-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ZalandoSansExpanded-Medium.ttf"; path = "../assets/fonts/ZalandoSansExpanded-Medium.ttf"; sourceTree = "<group>"; };
+		4AAE7ECD51D94B2CBE71D18C /* Lexend-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lexend-Bold.ttf"; path = "../assets/fonts/Lexend-Bold.ttf"; sourceTree = "<group>"; };
 		4F38F22DE91042DAA8244CD6 /* ZalandoSansExpanded-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ZalandoSansExpanded-Regular.ttf"; path = "../assets/fonts/ZalandoSansExpanded-Regular.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-HexMapsReactNative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexMapsReactNative.release.xcconfig"; path = "Target Support Files/Pods-HexMapsReactNative/Pods-HexMapsReactNative.release.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-HexMapsReactNative.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HexMapsReactNative.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DACFDE5B56A410A86F47EDA /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = HexMapsReactNative/AppDelegate.swift; sourceTree = "<group>"; };
-		7FA30FE276D14BDFB3901EA8 /* index.ts */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = index.ts; path = ../assets/fonts/index.ts; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = HexMapsReactNative/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A90F4A135E3C4631B6FAB412 /* Poppins-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Light.ttf"; path = "../assets/fonts/Poppins-Light.ttf"; sourceTree = "<group>"; };
 		AB90E2DC9B3745DBAD4F083F /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		B152D340D3F7404782C24B4D /* ZalandoSansExpanded-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ZalandoSansExpanded-Light.ttf"; path = "../assets/fonts/ZalandoSansExpanded-Light.ttf"; sourceTree = "<group>"; };
+		BE4828D145654F588692F251 /* index.ts */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = index.ts; path = ../assets/fonts/index.ts; sourceTree = "<group>"; };
+		C1F68E5C32A84FBDB6DDA419 /* Lexend-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lexend-Medium.ttf"; path = "../assets/fonts/Lexend-Medium.ttf"; sourceTree = "<group>"; };
+		EBF2300242AE441C9121E282 /* Lexend-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lexend-Light.ttf"; path = "../assets/fonts/Lexend-Light.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F9BB5AD1FAAA4ACF94F0E0FC /* Lexend-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lexend-SemiBold.ttf"; path = "../assets/fonts/Lexend-SemiBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +133,12 @@
 				A90F4A135E3C4631B6FAB412 /* Poppins-Light.ttf */,
 				6DACFDE5B56A410A86F47EDA /* Poppins-Medium.ttf */,
 				AB90E2DC9B3745DBAD4F083F /* Poppins-Regular.ttf */,
-				7FA30FE276D14BDFB3901EA8 /* index.ts */,
+				4AAE7ECD51D94B2CBE71D18C /* Lexend-Bold.ttf */,
+				EBF2300242AE441C9121E282 /* Lexend-Light.ttf */,
+				C1F68E5C32A84FBDB6DDA419 /* Lexend-Medium.ttf */,
+				1FBBB9655FD143A88AFFC164 /* Lexend-Regular.ttf */,
+				F9BB5AD1FAAA4ACF94F0E0FC /* Lexend-SemiBold.ttf */,
+				BE4828D145654F588692F251 /* index.ts */,
 			);
 			name = Resources;
 			path = "";
@@ -209,7 +224,12 @@
 				3121EC23C7564344BAD771FC /* Poppins-Light.ttf in Resources */,
 				BF19DD97E612455F8957E6FE /* Poppins-Medium.ttf in Resources */,
 				09C6D5D48CA843F4A3C251AC /* Poppins-Regular.ttf in Resources */,
-				F5057D4BDF2E45E6BB9F2BDD /* index.ts in Resources */,
+				4F054CA3D02C41978F9638F8 /* Lexend-Bold.ttf in Resources */,
+				035B1915AAC94532BB41EF71 /* Lexend-Light.ttf in Resources */,
+				A3DF93A28EB94EFCA50D6CE5 /* Lexend-Medium.ttf in Resources */,
+				5B60342F7C4948339D3A1518 /* Lexend-Regular.ttf in Resources */,
+				D971D1EA1C44488E91B189F2 /* Lexend-SemiBold.ttf in Resources */,
+				51CF9FB2BC5D4F73B1471D79 /* index.ts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

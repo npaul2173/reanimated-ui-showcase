@@ -49,6 +49,11 @@
 		<string>Poppins-Light.ttf</string>
 		<string>Poppins-Medium.ttf</string>
 		<string>Poppins-Regular.ttf</string>
+		<string>Lexend-Bold.ttf</string>
+		<string>Lexend-Light.ttf</string>
+		<string>Lexend-Medium.ttf</string>
+		<string>Lexend-Regular.ttf</string>
+		<string>Lexend-SemiBold.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

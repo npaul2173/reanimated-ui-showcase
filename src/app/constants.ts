@@ -7,15 +7,23 @@ export type ScreensListProps = {
   bgColor: string;
   color?: string;
 };
+
 export const listData: ScreensListProps[] = [
   {
-    navigationKey: 'voiceRoomUsersPreview',
-    title: 'Voice room preview',
+    navigationKey: 'verticalCarousel',
+    title: 'Vertical Carousel',
     description:
       'Displays animated micro cards with curved transitions for dynamic visual flow',
-    bgColor: '#d6d6d6ff', // red-500
-    color: '#0000',
+    bgColor: '#f2ab07ff', // red-500
   },
+  // {
+  //   navigationKey: 'voiceRoomUsersPreview',
+  //   title: 'Voice room preview',
+  //   description:
+  //     'Displays animated micro cards with curved transitions for dynamic visual flow',
+  //   bgColor: '#d6d6d6ff', // red-500
+  //   color: '#0000',
+  // },
   {
     navigationKey: 'appleInvites',
     title: 'Apple invites',
