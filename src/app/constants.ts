@@ -9,6 +9,13 @@ export type ScreensListProps = {
 };
 export const listData: ScreensListProps[] = [
   {
+    navigationKey: 'typingAnimation',
+    title: 'Typing animation',
+    description: 'Displays apple invites new scrollview animation',
+    bgColor: '#5dcb9bff', // red-500
+  },
+
+  {
     navigationKey: 'appleInvites',
     title: 'Apple invites',
     description: 'Displays apple invites new scrollview animation',

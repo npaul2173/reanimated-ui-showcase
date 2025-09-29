@@ -9,6 +9,7 @@ import StoryList from '../StoryList/app';
 import leaderBoard from '../LeaderBoard/app';
 import curvedTransitionMicroCards from '../curved-transition-micro-cards/app';
 import appleInvites from '../apple-invites/app';
+import typingAnimation from '../typing-animation/app';
 /**
  * Define the RootStackParamList.
  *
@@ -24,6 +25,7 @@ export type RootStackParamList = {
   leaderBoard: undefined;
   curvedTransitionMicroCards: undefined;
   appleInvites: undefined;
+  typingAnimation: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>({
@@ -37,6 +39,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>({
     leaderBoard,
     curvedTransitionMicroCards,
     appleInvites,
+    typingAnimation,
   },
 });
 
