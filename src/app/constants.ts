@@ -11,7 +11,7 @@ export const listData: ScreensListProps[] = [
   {
     navigationKey: 'typingAnimation',
     title: 'Typing animation',
-    description: 'Displays apple invites new scrollview animation',
+    description: 'Smooth typing animation with custom cursor blinking',
     bgColor: '#5dcb9bff', // red-500
   },
 

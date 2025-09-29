@@ -7,7 +7,8 @@ import {
   ViewStyle,
 } from 'react-native';
 import Animated, {
-  interpolate,
+  interpolateColor,
+  SharedValue,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
@@ -22,23 +23,73 @@ const CURSOR_WIDTH = 10;
 type TypingFieldProps = {
   fontSize?: number;
   backgroundStyles?: StyleProp<ViewStyle>;
+  value: string;
+  onChangeText: (text: string) => void;
+  isFocused?: boolean;
 };
 
 export const TypingField: React.FC<TypingFieldProps> = ({
   fontSize = FONT_SIZE,
   backgroundStyles,
+  value,
+  onChangeText,
+  isFocused,
 }) => {
-  const [active, setActive] = useState(false);
-  const [value, setValue] = useState<string>('');
+  const [active, setActive] = useState(isFocused);
   const inputRef = useRef<TextInput>(null);
+  const isFocusedShared = useSharedValue(0); // 0 = not focused, 1 = focused
+
+  // useEffect(() => {
+  //   if (!active && value === '0.00') {
+  //     onChangeText('0');
+  //   }
+  // }, [active]);
 
   const onTextFocus = () => {
+    if (value === '0.00') onChangeText('0');
     setActive(true);
+    isFocusedShared.value = withTiming(1, { duration: 300 });
   };
 
   const onBlurFocus = () => {
     setActive(false);
+    isFocusedShared.value = withTiming(0, { duration: 300 });
   };
+
+  const onChangeCallback = (text: string) => {
+    console.log({ text, value }, !/^\d*\.?\d*$/.test(text));
+    if (!/^\d*\.?\d*$/.test(text)) return;
+
+    // Split on decimal and validate precision
+    const [_, decimalPart] = text.split('.');
+    if (decimalPart && decimalPart.length > 2) return;
+    else {
+      console.log('parseFloat(value) ', parseFloat(value), text);
+      if (value === '0' && text.charAt(0) === '0' && text.length > 1) {
+        onChangeText(text.charAt(1)); // Replace "0" with new digit
+        return;
+      } else if (text === '') onChangeText('0');
+      else {
+        onChangeText(text);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (isFocused) {
+    }
+  }, [isFocused]);
+
+  const animatedStyles = useAnimatedStyle(() => ({
+    transform: [
+      {
+        translateX: withTiming(active ? 0 : value.length * 10, {
+          duration: 300,
+        }),
+      },
+      { scale: withTiming(active ? 1 : 0.4, { duration: 300 }) }, // Scale based on focus
+    ],
+  }));
 
   return (
     <View
@@ -49,17 +100,26 @@ export const TypingField: React.FC<TypingFieldProps> = ({
         { height: fontSize + PADDING * 2, paddingHorizontal: PADDING },
       ]}
     >
-      <View style={[styles.container, { height: fontSize }]}>
-        {value.split('').map((char, index) => (
-          <AnimatedText
-            key={`${char}-${index}`}
-            character={char}
-            fontSize={fontSize}
-            cursorWidth={CURSOR_WIDTH}
-          />
-        ))}
-
-        {active && <BlinkingCursor height={fontSize} width={CURSOR_WIDTH} />}
+      <View
+        style={{
+          // backgroundColor: 'red',
+          alignItems: 'flex-end',
+        }}
+      >
+        <Animated.View
+          style={[styles.container, { height: fontSize }, animatedStyles]}
+        >
+          {value.split('').map((char, index) => (
+            <AnimatedText
+              key={`${char}-${index}`}
+              character={char}
+              fontSize={fontSize}
+              cursorWidth={CURSOR_WIDTH}
+              isFocusedShared={isFocusedShared}
+            />
+          ))}
+          {active && <BlinkingCursor height={fontSize} width={CURSOR_WIDTH} />}
+        </Animated.View>
       </View>
 
       {/* Hidden TextInput */}
@@ -70,8 +130,8 @@ export const TypingField: React.FC<TypingFieldProps> = ({
         value={value}
         onFocus={onTextFocus}
         onBlur={onBlurFocus}
-        onChangeText={setValue}
-        autoFocus={false}
+        onChangeText={onChangeCallback}
+        autoFocus={isFocused}
       />
     </View>
   );
@@ -81,7 +141,8 @@ const AnimatedText: React.FC<{
   character: string;
   fontSize: number;
   cursorWidth: number;
-}> = ({ character, fontSize, cursorWidth }) => {
+  isFocusedShared: SharedValue<number>;
+}> = ({ isFocusedShared, character, fontSize, cursorWidth }) => {
   const animationProgress = useSharedValue(0);
   const pivotX = fontSize;
   const pivotY = fontSize;
@@ -95,6 +156,11 @@ const AnimatedText: React.FC<{
   }, [animationCallback]);
 
   const animatedStyles = useAnimatedStyle(() => ({
+    color: interpolateColor(
+      isFocusedShared.value,
+      [1, 0],
+      ['#000000', '#888888'], // black to grey
+    ),
     transform: [
       { translateX: pivotX / 2 - cursorWidth },
       { translateY: pivotY / 2 - cursorWidth },
@@ -108,7 +174,7 @@ const AnimatedText: React.FC<{
     <Animated.Text
       style={[
         styles.inputText,
-        { fontSize, lineHeight: fontSize },
+        { fontSize, lineHeight: fontSize + 10 },
         animatedStyles,
       ]}
     >
