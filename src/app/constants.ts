@@ -15,15 +15,15 @@ export const listData: ScreensListProps[] = [
     description:
       'Displays animated micro cards with curved transitions for dynamic visual flow',
     bgColor: '#d6d6d6ff', // red-500
-    color: '#0000',
+    color: '#000000',
   },
-  {
-    navigationKey: 'verticalCarousel',
-    title: 'Vertical Carousel',
-    description:
-      'Displays animated micro cards with curved transitions for dynamic visual flow',
-    bgColor: '#f2ab07ff', // red-500
-  },
+  // {
+  //   navigationKey: 'verticalCarousel',
+  //   title: 'Vertical Carousel',
+  //   description:
+  //     'Displays animated micro cards with curved transitions for dynamic visual flow',
+  //   bgColor: '#f2ab07ff', // red-500
+  // },
 
   {
     navigationKey: 'typingAnimation',
