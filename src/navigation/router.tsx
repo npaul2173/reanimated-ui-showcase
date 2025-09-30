@@ -11,6 +11,7 @@ import curvedTransitionMicroCards from '../curved-transition-micro-cards/app';
 import voiceRoomUsersPreview from '../voice-room-users-preview/app';
 import verticalCarousel from '../vertical-carousel-travel-cards/app';
 import appleInvites from '../apple-invites/app';
+import typingAnimation from '../typing-animation/app';
 /**
  * Define the RootStackParamList.
  *
@@ -28,6 +29,7 @@ export type RootStackParamList = {
   voiceRoomUsersPreview: undefined;
   appleInvites: undefined;
   verticalCarousel: undefined;
+  typingAnimation: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>({
@@ -43,6 +45,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>({
     voiceRoomUsersPreview,
     appleInvites,
     verticalCarousel,
+    typingAnimation,
   },
 });
 
