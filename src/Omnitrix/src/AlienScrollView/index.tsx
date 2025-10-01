@@ -56,7 +56,7 @@ export const AlienScrollView: React.FC<AlienScrollViewProps> = ({
             style={{
               width: WATCH_SIZE / 2,
               height: WATCH_SIZE / 2,
-              backgroundColor: randomColors[alienIndex],
+              // backgroundColor: randomColors[alienIndex],
               justifyContent: 'center',
               alignItems: 'center',
               // backgroundColor: "#77AA66",

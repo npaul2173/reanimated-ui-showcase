@@ -1,24 +1,15 @@
 /* eslint-disable react-native/no-inline-styles */
 import { useRef, useState } from 'react';
 import { Button, Dimensions, StatusBar, StyleSheet, View } from 'react-native';
-import Animated, {
-  useAnimatedScrollHandler,
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming,
-} from 'react-native-reanimated';
+import Animated, { useSharedValue, withTiming } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { scheduleOnRN } from 'react-native-worklets';
-import RingElements from '../svgs/watchElements/ringElements.svg';
+import RingElements from '../svgs/watchElements/RingElements.svg';
+import MainOuterCircle from './../svgs/watchElements/mainOuterCircle.svg';
 import { alienData, appColors } from './constants';
-import { GreenRim } from './GreenRim';
-import { SubtarctScope } from './SubtarctScope';
-import { MainOuterCircle } from './MainOuterCircle';
-import { AlienScrollView } from './AlienScrollView';
 
 export const PADDING = 20;
 const { width: appWidth } = Dimensions.get('screen');
-export const WATCH_SIZE = appWidth - PADDING * 2;
+export const WATCH_SIZE = appWidth * 0.7;
 export const ALIEN_SIZE = appWidth - 250;
 
 // Screen code
@@ -27,7 +18,7 @@ export const Screen = () => {
 
   // const loopBacgroundEffect = useBGSoundLoop();
   const rotation = useSharedValue(0);
-  const progress = useSharedValue(0); // <--- shared value
+  // const progress = useSharedValue(0); // <--- shared value
   const [_activeIndex, setActiveIndex] = useState<number>(0);
 
   console.log({ _activeIndex });
@@ -64,9 +55,9 @@ export const Screen = () => {
     // whoosh.play();
   };
 
-  const animatedStyle = useAnimatedStyle(() => ({
-    transform: [{ rotate: `${rotation.value}deg` }],
-  }));
+  // const animatedStyle = useAnimatedStyle(() => ({
+  //   transform: [{ rotate: `${rotation.value}deg` }],
+  // }));
 
   // Enable playback in background and when screen is locked
   // Sound.setCategory('Playback');
@@ -117,14 +108,14 @@ export const Screen = () => {
   //   };
   // }, []);
 
-  const scrollHandler = useAnimatedScrollHandler({
-    onScroll: event => {
-      const offsetX = event.contentOffset.x;
-      const offsetCAlculated = offsetX / (ALIEN_SIZE + 50); // fractional index
-      progress.value = offsetCAlculated; // fractional index
-      scheduleOnRN(setActiveIndex, Math.round(offsetCAlculated));
-    },
-  });
+  // const scrollHandler = useAnimatedScrollHandler({
+  //   onScroll: event => {
+  //     const offsetX = event.contentOffset.x;
+  //     const offsetCAlculated = offsetX / (ALIEN_SIZE + 50); // fractional index
+  //     progress.value = offsetCAlculated; // fractional index
+  //     scheduleOnRN(setActiveIndex, Math.round(offsetCAlculated));
+  //   },
+  // });
 
   return (
     <SafeAreaView mode="margin" style={styles.container}>
@@ -135,35 +126,49 @@ export const Screen = () => {
 
       <View style={{ backgroundColor: '#000000ff00' }}>
         <View
-          style={{
-            width: appWidth,
-            height: appWidth,
-          }}
+          style={
+            {
+              // width: appWidth,
+              // height: appWidth,
+            }
+          }
         >
-          <AlienScrollView
+          {/* <AlienScrollView
             data={alienData}
             onScroll={scrollHandler}
             scrollRef={scrollRef}
-          />
+          /> */}
           <View
+            style={{
+              pointerEvents: 'none',
+              position: 'absolute',
+
+              zIndex: 9,
+            }}
+          >
+            <MainOuterCircle width={WATCH_SIZE} height={WATCH_SIZE} />
+          </View>
+          {/* <View
             style={[
               {
                 pointerEvents: 'none',
                 position: 'absolute',
-                top: 0,
-                left: PADDING,
+                width: WATCH_SIZE,
+                height: WATCH_SIZE,
+                justifyContent: 'center',
+                alignItems: 'center',
                 zIndex: 20,
               },
             ]}
           >
-            <Animated.View style={animatedStyle}>
-              <RingElements width={WATCH_SIZE} height={WATCH_SIZE} />
+            <Animated.View>
+            <RingElements width={'100%'} height={'100%'} />
             </Animated.View>
-          </View>
+          </View> */}
 
           <MainOuterCircle />
-          <GreenRim />
-          <SubtarctScope />
+          {/* <GreenRim />
+          <SubtarctScope /> */}
         </View>
       </View>
 
