@@ -9,7 +9,10 @@ import StoryList from '../StoryList/app';
 import leaderBoard from '../LeaderBoard/app';
 import curvedTransitionMicroCards from '../curved-transition-micro-cards/app';
 import AppContainer from '../Omnitrix/app';
+import voiceRoomUsersPreview from '../voice-room-users-preview/app';
+import verticalCarousel from '../vertical-carousel-travel-cards/app';
 import appleInvites from '../apple-invites/app';
+import typingAnimation from '../typing-animation/app';
 /**
  * Define the RootStackParamList.
  *
@@ -25,7 +28,10 @@ export type RootStackParamList = {
   leaderBoard: undefined;
   curvedTransitionMicroCards: undefined;
   omnitrix: undefined;
+  voiceRoomUsersPreview: undefined;
   appleInvites: undefined;
+  verticalCarousel: undefined;
+  typingAnimation: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>({
@@ -39,7 +45,10 @@ const RootStack = createNativeStackNavigator<RootStackParamList>({
     leaderBoard,
     curvedTransitionMicroCards,
     omnitrix: AppContainer,
+    voiceRoomUsersPreview,
     appleInvites,
+    verticalCarousel,
+    typingAnimation,
   },
 });
 

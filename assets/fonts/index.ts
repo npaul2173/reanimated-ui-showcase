@@ -11,4 +11,11 @@ export const fontFamily = {
     regular: 'Poppins-Regular',
     bold: 'Poppins-Bold',
   },
+  Lexend: {
+    medium: 'Lexend-Medium',
+    light: 'Lexend-Light',
+    regular: 'Lexend-Regular',
+    bold: 'Lexend-Bold',
+    semiBold: 'Lexend-SemiBold',
+  },
 };
