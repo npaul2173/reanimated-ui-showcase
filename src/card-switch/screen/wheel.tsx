@@ -1,78 +1,60 @@
 import React from 'react';
-import { Dimensions, StyleSheet, View } from 'react-native';
-import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import { StyleSheet } from 'react-native';
+import {
+  Gesture,
+  GestureDetector,
+  GestureHandlerRootView,
+} from 'react-native-gesture-handler';
 import Animated, {
-  useAnimatedStyle,
   useSharedValue,
+  useAnimatedStyle,
 } from 'react-native-reanimated';
 
-const { width } = Dimensions.get('window');
-const WHEEL_SIZE = width * 0.7;
+function Wheel() {
+  const angle = useSharedValue(0);
+  const startAngle = useSharedValue(0);
 
-export default function Wheel() {
-  const rotation = useSharedValue(0); // total rotation
-  const startAngle = useSharedValue(0); // angle offset
-
-  const panGesture = Gesture.Pan()
-    .onBegin(event => {
-      const centerX = WHEEL_SIZE / 2;
-      const centerY = WHEEL_SIZE / 2;
-
-      const x = event.x - centerX;
-      const y = event.y - centerY;
-
-      // Store difference between current angle and rotation
-      startAngle.value = Math.atan2(y, x) - rotation.value;
+  const rotation = Gesture.Rotation()
+    .onStart(() => {
+      startAngle.value = angle.value;
     })
     .onUpdate(event => {
-      const centerX = WHEEL_SIZE / 2;
-      const centerY = WHEEL_SIZE / 2;
-
-      const x = event.x - centerX;
-      const y = event.y - centerY;
-
-      const angle = Math.atan2(y, x);
-
-      // update rotation relative to initial offset
-      rotation.value = angle - startAngle.value;
+      angle.value = startAngle.value + event.rotation;
     });
 
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ rotate: `${rotation.value}rad` }],
-    };
-  });
+  const boxAnimatedStyles = useAnimatedStyle(() => ({
+    transform: [{ rotate: `${angle.value}rad` }],
+  }));
 
   return (
-    <View style={styles.container}>
-      <GestureDetector gesture={panGesture}>
-        <Animated.View style={[styles.wheel, animatedStyle]}>
-          <View style={styles.square} />
-        </Animated.View>
+    <GestureHandlerRootView style={styles.container}>
+      <GestureDetector gesture={rotation}>
+        <Animated.View style={[styles.box, boxAnimatedStyles]} />
       </GestureDetector>
-    </View>
+    </GestureHandlerRootView>
   );
 }
 
+export { Wheel };
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-  },
-  wheel: {
-    width: WHEEL_SIZE,
-    height: WHEEL_SIZE,
-    borderRadius: WHEEL_SIZE / 2,
-    backgroundColor: '#4A90E2',
-    borderWidth: 8,
-    borderColor: '#333',
     justifyContent: 'center',
-    alignItems: 'center',
   },
-  square: {
-    width: WHEEL_SIZE * 0.7,
-    height: WHEEL_SIZE * 0.7,
-    backgroundColor: '#405369ff',
+  box: {
+    width: 300,
+    height: 300,
+    borderRadius: 20,
+    backgroundColor: '#b58df1',
+  },
+  dot: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: '#ccc',
+    position: 'absolute',
+    left: '50%',
+    top: '50%',
   },
 });

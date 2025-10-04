@@ -1,16 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Wheel from './wheel';
+import { Wheel } from './wheel';
+import { Wheel2 } from './wheel2';
 
 const PADDING = 16;
 
 export const Screen: React.FC = () => {
   return (
-    // <SafeAreaView style={styles.container}>
-    //   <Text>asd</Text>
-    // </SafeAreaView>
-    <Wheel />
+    <SafeAreaView style={styles.container}>
+      <Wheel2 />
+    </SafeAreaView>
   );
 };
 
