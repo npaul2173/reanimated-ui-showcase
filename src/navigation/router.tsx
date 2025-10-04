@@ -13,6 +13,7 @@ import voiceRoomUsersPreview from '../voice-room-users-preview/app';
 import verticalCarousel from '../vertical-carousel-travel-cards/app';
 import appleInvites from '../apple-invites/app';
 import typingAnimation from '../typing-animation/app';
+import cardSwitch from '../card-switch/app';
 /**
  * Define the RootStackParamList.
  *
@@ -32,6 +33,7 @@ export type RootStackParamList = {
   appleInvites: undefined;
   verticalCarousel: undefined;
   typingAnimation: undefined;
+  cardSwitch: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>({
@@ -49,6 +51,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>({
     appleInvites,
     verticalCarousel,
     typingAnimation,
+    cardSwitch,
   },
 });
 
