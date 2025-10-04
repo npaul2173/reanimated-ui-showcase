@@ -16,6 +16,7 @@ import { GreenRim } from './GreenRim';
 import { MainOuterCircle } from './MainOuterCircle';
 import { RingElements } from './RingElements';
 import { SubtarctScope } from './SubtarctScope';
+import { useBGSoundLoop } from './bgHook';
 
 export const PADDING = 20;
 const { width: appWidth } = Dimensions.get('screen');
@@ -30,6 +31,7 @@ export const Screen = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const totalItems = alienData.length;
   console.log({ activeIndex });
+  useBGSoundLoop();
 
   // const animatedStyle = useAnimatedStyle(() => ({
   //   transform: [{ rotate: `${rotation.value}deg` }],

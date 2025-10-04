@@ -9,8 +9,6 @@ import { StyleSheet } from 'react-native';
 export const RingElements: React.FC<{ rotation: SharedValue<number> }> = ({
   rotation,
 }) => {
-  console.log(rotation.get());
-
   const animatedStyle = useAnimatedStyle(() => {
     return {
       transform: [{ rotate: `${rotation.value}deg` }],
