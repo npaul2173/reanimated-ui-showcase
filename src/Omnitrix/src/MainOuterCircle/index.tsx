@@ -8,9 +8,11 @@ export const MainOuterCircle: React.FC = () => {
       style={{
         pointerEvents: 'none',
         position: 'absolute',
-
-        zIndex: 9,
-        backgroundColor: 'wheat',
+        top: 0,
+        left: 0,
+        zIndex: 10,
+        width: WATCH_SIZE,
+        height: WATCH_SIZE,
       }}
     >
       <MainOuterCircleSvg width={WATCH_SIZE} height={WATCH_SIZE} />

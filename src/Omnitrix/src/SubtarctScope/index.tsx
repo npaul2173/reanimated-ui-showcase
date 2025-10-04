@@ -1,6 +1,8 @@
 import { View } from 'react-native';
-import { PADDING, WATCH_SIZE } from '../screen';
 import SubtarctScopeSvg from '../../svgs/watchElements/subtarctScope.svg';
+import { WATCH_SIZE } from '../screen';
+
+const SCOPE_SIZE = WATCH_SIZE * 0.7;
 
 export const SubtarctScope: React.FC = () => {
   return (
@@ -8,12 +10,17 @@ export const SubtarctScope: React.FC = () => {
       style={{
         pointerEvents: 'none',
         position: 'absolute',
-        top: PADDING + 25,
-        left: PADDING + 45,
-        zIndex: 12,
+        top: 0,
+        left: 0,
+        zIndex: 60,
+        width: WATCH_SIZE,
+        height: WATCH_SIZE,
+
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
-      <SubtarctScopeSvg width={WATCH_SIZE - 90} height={WATCH_SIZE - 90} />
+      <SubtarctScopeSvg width={SCOPE_SIZE} height={SCOPE_SIZE} />
     </View>
   );
 };

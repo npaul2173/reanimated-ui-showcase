@@ -1,59 +1,35 @@
 /* eslint-disable react-native/no-inline-styles */
 import { useRef, useState } from 'react';
-import { Button, Dimensions, StatusBar, StyleSheet, View } from 'react-native';
-import Animated, { useSharedValue, withTiming } from 'react-native-reanimated';
+import { Dimensions, StatusBar, StyleSheet, View } from 'react-native';
+import Animated, {
+  useAnimatedScrollHandler,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import RingElements from '../svgs/watchElements/RingElements.svg';
-import MainOuterCircle from './../svgs/watchElements/mainOuterCircle.svg';
-import { alienData, appColors } from './constants';
+import Sound from 'react-native-sound';
+import { scheduleOnRN } from 'react-native-worklets';
+import { AlienInfo } from './AlienInfo';
+import { AlienScrollView } from './AlienScrollView';
+import { alienData, AlienDataProps, appColors } from './constants';
+import { GreenRim } from './GreenRim';
+import { MainOuterCircle } from './MainOuterCircle';
+import { RingElements } from './RingElements';
+import { SubtarctScope } from './SubtarctScope';
 
 export const PADDING = 20;
 const { width: appWidth } = Dimensions.get('screen');
-export const WATCH_SIZE = appWidth * 0.7;
-export const ALIEN_SIZE = appWidth - 250;
+export const WATCH_SIZE = appWidth * 0.9;
 
 // Screen code
 export const Screen = () => {
-  const scrollRef = useRef<Animated.ScrollView>(null);
+  const scrollRef = useRef<Animated.FlatList<AlienDataProps>>(null);
 
-  // const loopBacgroundEffect = useBGSoundLoop();
   const rotation = useSharedValue(0);
-  // const progress = useSharedValue(0); // <--- shared value
-  const [_activeIndex, setActiveIndex] = useState<number>(0);
-
-  console.log({ _activeIndex });
-
-  // const AlienSubject = AlienAssets['Forearms'];
-  const rotateCircle = (direction: 'next' | 'back') => {
-    rotation.value = withTiming(
-      rotation.value + (direction === 'next' ? 45 : -45),
-      {
-        duration: 200,
-      },
-    );
-    // whoosh.play();
-
-    const nextIndex =
-      direction === 'next'
-        ? Math.min(_activeIndex + 1, alienData.length - 1)
-        : Math.max(_activeIndex - 1, 0);
-
-    setActiveIndex(nextIndex);
-
-    // // Animate rotation
-    // rotation.value = withTiming(
-    //   rotation.value + (direction === 'next' ? 45 : -45),
-    //   { duration: 200 },
-    // );
-
-    // Scroll to the new alien
-    scrollRef.current?.scrollTo({
-      x: nextIndex * (ALIEN_SIZE + 50), // same as snapToInterval
-      animated: true,
-    });
-
-    // whoosh.play();
-  };
+  const progress = useSharedValue(0); // <--- shared value
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const totalItems = alienData.length;
+  console.log({ activeIndex });
 
   // const animatedStyle = useAnimatedStyle(() => ({
   //   transform: [{ rotate: `${rotation.value}deg` }],
@@ -62,130 +38,110 @@ export const Screen = () => {
   // Enable playback in background and when screen is locked
   // Sound.setCategory('Playback');
 
-  // const whoosh = new Sound('watch_clutch.mp3', Sound.MAIN_BUNDLE, error => {
-  //   if (error) {
-  //     console.log('failed to load the sound', error);
-  //     return;
-  //   }
-  //   // loaded successfully
-  //   console.log(
-  //     'duration in seconds: ' +
-  //       whoosh.getDuration() +
-  //       'number of channels: ' +
-  //       whoosh.getNumberOfChannels(),
-  //   );
+  const whoosh = new Sound('watch_clutch.mp3', Sound.MAIN_BUNDLE, error => {
+    if (error) {
+      console.log('failed to load the sound', error);
+      return;
+    }
+    // loaded successfully
+    console.log(
+      'duration in seconds: ' +
+        whoosh.getDuration() +
+        'number of channels: ' +
+        whoosh.getNumberOfChannels(),
+    );
 
-  //   // Play the sound with an onEnd callback
-  //   // whoosh.play(success => {
-  //   //   if (success) {
-  //   //     console.log('successfully finished playing');
-  //   //   } else {
-  //   //     console.log('playback failed due to audio decoding errors');
-  //   //   }
-  //   //   // Release the audio player resource once playback is complete
-  //   //   whoosh.release();
-  //   // });
-  // });
+    // Play the sound with an onEnd callback
+    // whoosh.play(success => {
+    //   if (success) {
+    //     console.log('successfully finished playing');
+    //   } else {
+    //     console.log('playback failed due to audio decoding errors');
+    //   }
+    //   // Release the audio player resource once playback is complete
+    //   whoosh.release();
+    // });
+  });
 
-  // useEffect(() => {
-  //   Sound.setCategory('Playback');
+  const scrollHandler = useAnimatedScrollHandler({
+    onScroll: event => {
+      const offsetX = event.contentOffset.x;
+      const fractionalIndex = offsetX / WATCH_SIZE; // Use visible item width
+      progress.value = fractionalIndex; // update animated progress
+    },
+    onMomentumEnd: event => {
+      const offsetX = event.contentOffset.x;
+      const index = Math.round(offsetX / WATCH_SIZE);
+      // runOnJS(setActiveIndex)(index); // ensure exact page index
+      scheduleOnRN(setActiveIndex, index);
+    },
+  });
 
-  //   // Load the mp3 file
-  //   bgSound.current = new Sound(
-  //     require('../soundEffects/continousBeep.mp3'),
-  //     error => {
-  //       if (error) {
-  //         console.log('Failed to load sound', error);
-  //         return;
-  //       }
-  //       // Set loop to infinite (-1 = infinite loop)
-  //       bgSound.current?.setNumberOfLoops(-1);
-  //     },
-  //   );
+  const paginateButton = (direction: 'next' | 'back') => {
+    let newIndex = activeIndex;
+    if (direction === 'next') {
+      newIndex = Math.min(activeIndex + 1, totalItems - 1); // don't go past end
+    } else if (direction === 'back') {
+      newIndex = Math.max(activeIndex - 1, 0); // don't go before start
+    }
 
-  //   return () => {
-  //     bgSound.current?.release(); // cleanup when unmount
-  //   };
-  // }, []);
+    // update state
+    setActiveIndex(newIndex);
 
-  // const scrollHandler = useAnimatedScrollHandler({
-  //   onScroll: event => {
-  //     const offsetX = event.contentOffset.x;
-  //     const offsetCAlculated = offsetX / (ALIEN_SIZE + 50); // fractional index
-  //     progress.value = offsetCAlculated; // fractional index
-  //     scheduleOnRN(setActiveIndex, Math.round(offsetCAlculated));
-  //   },
-  // });
+    // scroll FlatList programmatically
+    scrollRef.current?.scrollToOffset({
+      offset: newIndex * WATCH_SIZE, // item width
+      animated: true,
+    });
+
+    rotation.value = withTiming(
+      rotation.value + (direction === 'next' ? 45 : -45),
+      {
+        duration: 200,
+      },
+    );
+
+    whoosh.play();
+  };
 
   return (
-    <SafeAreaView mode="margin" style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <StatusBar
         barStyle={'light-content'}
         backgroundColor={appColors.baseBlueDarker}
       />
 
-      <View style={{ backgroundColor: '#000000ff00' }}>
+      <View
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
         <View
-          style={
-            {
-              // width: appWidth,
-              // height: appWidth,
-            }
-          }
+          style={{
+            width: WATCH_SIZE,
+            height: WATCH_SIZE,
+          }}
         >
-          {/* <AlienScrollView
+          <MainOuterCircle />
+          <GreenRim />
+          <AlienScrollView
             data={alienData}
             onScroll={scrollHandler}
             scrollRef={scrollRef}
-          /> */}
-          <View
-            style={{
-              pointerEvents: 'none',
-              position: 'absolute',
-
-              zIndex: 9,
-            }}
-          >
-            <MainOuterCircle width={WATCH_SIZE} height={WATCH_SIZE} />
-          </View>
-          {/* <View
-            style={[
-              {
-                pointerEvents: 'none',
-                position: 'absolute',
-                width: WATCH_SIZE,
-                height: WATCH_SIZE,
-                justifyContent: 'center',
-                alignItems: 'center',
-                zIndex: 20,
-              },
-            ]}
-          >
-            <Animated.View>
-            <RingElements width={'100%'} height={'100%'} />
-            </Animated.View>
-          </View> */}
-
-          <MainOuterCircle />
-          {/* <GreenRim />
-          <SubtarctScope /> */}
+            progress={progress}
+          />
+          <SubtarctScope />
+          <RingElements rotation={rotation} />
         </View>
       </View>
 
-      <View style={styles.buttonRow}>
-        <Button
-          title="Back"
-          onPress={() => {
-            rotateCircle('back');
-          }}
-        />
-        <Button
-          title="Next"
-          onPress={() => {
-            rotateCircle('next');
-          }}
-        />
-      </View>
+      <AlienInfo
+        activeIndex={activeIndex}
+        totalItems={totalItems}
+        aliens={alienData}
+        paginateButton={paginateButton}
+      />
     </SafeAreaView>
   );
 };
@@ -195,18 +151,5 @@ export const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 40,
     backgroundColor: appColors.baseBlueDarker,
-    // alignItems: 'center',
   },
-  subcontainer: {
-    // padding: 100,
-    alignItems: 'center',
-  },
-  title: {
-    fontWeight: 700,
-    fontSize: 40,
-    color: '#c2ff0aff',
-    letterSpacing: -2,
-    paddingBottom: 20,
-  },
-  buttonRow: { flexDirection: 'row', marginTop: 40, gap: 20 },
 });

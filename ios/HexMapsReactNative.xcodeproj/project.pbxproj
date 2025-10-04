@@ -10,6 +10,8 @@
 		035B1915AAC94532BB41EF71 /* Lexend-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBF2300242AE441C9121E282 /* Lexend-Light.ttf */; };
 		09C6D5D48CA843F4A3C251AC /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AB90E2DC9B3745DBAD4F083F /* Poppins-Regular.ttf */; };
 		0C80B921A6F3F58F76C31292 /* libPods-HexMapsReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-HexMapsReactNative.a */; };
+		0E54744C2E91A53A0020FF5F /* watch_clutch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0E54744B2E91A53A0020FF5F /* watch_clutch.mp3 */; };
+		0E54744D2E91A53A0020FF5F /* continous_beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0E54744A2E91A53A0020FF5F /* continous_beep.mp3 */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		260D5E12DD144A099E393866 /* ZalandoSansExpanded-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FD541C1602549AA8EDE369F /* ZalandoSansExpanded-Medium.ttf */; };
 		3121EC23C7564344BAD771FC /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A90F4A135E3C4631B6FAB412 /* Poppins-Light.ttf */; };
@@ -29,32 +31,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		06B167848E944721B4BDEF2D /* ZalandoSansExpanded-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ZalandoSansExpanded-Bold.ttf"; path = "../assets/fonts/ZalandoSansExpanded-Bold.ttf"; sourceTree = "<group>"; };
+		06B167848E944721B4BDEF2D /* ZalandoSansExpanded-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ZalandoSansExpanded-Bold.ttf"; path = "../assets/fonts/ZalandoSansExpanded-Bold.ttf"; sourceTree = "<group>"; };
+		0E54744A2E91A53A0020FF5F /* continous_beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = continous_beep.mp3; sourceTree = "<group>"; };
+		0E54744B2E91A53A0020FF5F /* watch_clutch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = watch_clutch.mp3; sourceTree = "<group>"; };
 		0E5769702E79B06E00C9FF2C /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = "../node_modules/@react-native-vector-icons/ant-design/fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		0E5769722E79B0A300C9FF2C /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = "../node_modules/@react-native-vector-icons/ant-design/fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* HexMapsReactNative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HexMapsReactNative.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = HexMapsReactNative/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = HexMapsReactNative/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = HexMapsReactNative/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		1FBBB9655FD143A88AFFC164 /* Lexend-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lexend-Regular.ttf"; path = "../assets/fonts/Lexend-Regular.ttf"; sourceTree = "<group>"; };
-		2C7DC368B1154BF6B1CE1382 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		1FBBB9655FD143A88AFFC164 /* Lexend-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lexend-Regular.ttf"; path = "../assets/fonts/Lexend-Regular.ttf"; sourceTree = "<group>"; };
+		2C7DC368B1154BF6B1CE1382 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-HexMapsReactNative.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexMapsReactNative.debug.xcconfig"; path = "Target Support Files/Pods-HexMapsReactNative/Pods-HexMapsReactNative.debug.xcconfig"; sourceTree = "<group>"; };
-		3FD541C1602549AA8EDE369F /* ZalandoSansExpanded-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ZalandoSansExpanded-Medium.ttf"; path = "../assets/fonts/ZalandoSansExpanded-Medium.ttf"; sourceTree = "<group>"; };
-		4AAE7ECD51D94B2CBE71D18C /* Lexend-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lexend-Bold.ttf"; path = "../assets/fonts/Lexend-Bold.ttf"; sourceTree = "<group>"; };
-		4F38F22DE91042DAA8244CD6 /* ZalandoSansExpanded-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ZalandoSansExpanded-Regular.ttf"; path = "../assets/fonts/ZalandoSansExpanded-Regular.ttf"; sourceTree = "<group>"; };
+		3FD541C1602549AA8EDE369F /* ZalandoSansExpanded-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ZalandoSansExpanded-Medium.ttf"; path = "../assets/fonts/ZalandoSansExpanded-Medium.ttf"; sourceTree = "<group>"; };
+		4AAE7ECD51D94B2CBE71D18C /* Lexend-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lexend-Bold.ttf"; path = "../assets/fonts/Lexend-Bold.ttf"; sourceTree = "<group>"; };
+		4F38F22DE91042DAA8244CD6 /* ZalandoSansExpanded-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ZalandoSansExpanded-Regular.ttf"; path = "../assets/fonts/ZalandoSansExpanded-Regular.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-HexMapsReactNative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexMapsReactNative.release.xcconfig"; path = "Target Support Files/Pods-HexMapsReactNative/Pods-HexMapsReactNative.release.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-HexMapsReactNative.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HexMapsReactNative.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6DACFDE5B56A410A86F47EDA /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		6DACFDE5B56A410A86F47EDA /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = HexMapsReactNative/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = HexMapsReactNative/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A90F4A135E3C4631B6FAB412 /* Poppins-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Light.ttf"; path = "../assets/fonts/Poppins-Light.ttf"; sourceTree = "<group>"; };
-		AB90E2DC9B3745DBAD4F083F /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
-		B152D340D3F7404782C24B4D /* ZalandoSansExpanded-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "ZalandoSansExpanded-Light.ttf"; path = "../assets/fonts/ZalandoSansExpanded-Light.ttf"; sourceTree = "<group>"; };
-		BE4828D145654F588692F251 /* index.ts */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = index.ts; path = ../assets/fonts/index.ts; sourceTree = "<group>"; };
-		C1F68E5C32A84FBDB6DDA419 /* Lexend-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lexend-Medium.ttf"; path = "../assets/fonts/Lexend-Medium.ttf"; sourceTree = "<group>"; };
-		EBF2300242AE441C9121E282 /* Lexend-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lexend-Light.ttf"; path = "../assets/fonts/Lexend-Light.ttf"; sourceTree = "<group>"; };
+		A90F4A135E3C4631B6FAB412 /* Poppins-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Light.ttf"; path = "../assets/fonts/Poppins-Light.ttf"; sourceTree = "<group>"; };
+		AB90E2DC9B3745DBAD4F083F /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		B152D340D3F7404782C24B4D /* ZalandoSansExpanded-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "ZalandoSansExpanded-Light.ttf"; path = "../assets/fonts/ZalandoSansExpanded-Light.ttf"; sourceTree = "<group>"; };
+		BE4828D145654F588692F251 /* index.ts */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = index.ts; path = ../assets/fonts/index.ts; sourceTree = "<group>"; };
+		C1F68E5C32A84FBDB6DDA419 /* Lexend-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lexend-Medium.ttf"; path = "../assets/fonts/Lexend-Medium.ttf"; sourceTree = "<group>"; };
+		EBF2300242AE441C9121E282 /* Lexend-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lexend-Light.ttf"; path = "../assets/fonts/Lexend-Light.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F9BB5AD1FAAA4ACF94F0E0FC /* Lexend-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Lexend-SemiBold.ttf"; path = "../assets/fonts/Lexend-SemiBold.ttf"; sourceTree = "<group>"; };
+		F9BB5AD1FAAA4ACF94F0E0FC /* Lexend-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Lexend-SemiBold.ttf"; path = "../assets/fonts/Lexend-SemiBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				0E54744A2E91A53A0020FF5F /* continous_beep.mp3 */,
+				0E54744B2E91A53A0020FF5F /* watch_clutch.mp3 */,
 				0E5769702E79B06E00C9FF2C /* AntDesign.ttf */,
 				0E5769722E79B0A300C9FF2C /* AntDesign.ttf */,
 				13B07FAE1A68108700A75B9A /* HexMapsReactNative */,
@@ -141,7 +147,6 @@
 				BE4828D145654F588692F251 /* index.ts */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -213,6 +218,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E54744C2E91A53A0020FF5F /* watch_clutch.mp3 in Resources */,
+				0E54744D2E91A53A0020FF5F /* continous_beep.mp3 in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				62D9290E8E7B2E8B2A7F540D /* PrivacyInfo.xcprivacy in Resources */,

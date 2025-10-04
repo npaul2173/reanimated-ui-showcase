@@ -1,76 +1,107 @@
-import { useMemo } from 'react';
-import { Dimensions, ScrollViewProps, View } from 'react-native';
-import Animated from 'react-native-reanimated';
+import { ListRenderItem, StyleSheet } from 'react-native';
+import Animated, {
+  Extrapolate,
+  interpolate,
+  SharedValue,
+  useAnimatedStyle,
+} from 'react-native-reanimated';
 import { AlienDataProps, appColors } from '../constants';
-import { ALIEN_SIZE, PADDING, WATCH_SIZE } from '../screen';
+import { WATCH_SIZE } from '../screen';
 
-const { width: appWidth } = Dimensions.get('screen');
+export const ALIEN_SIZE = WATCH_SIZE * 0.45;
 
-type AlienScrollViewProps = Pick<ScrollViewProps, 'onScroll'> & {
-  scrollRef: React.Ref<Animated.ScrollView>;
+type AlienProps = {
+  alien: AlienDataProps;
+  index: number;
+  progress: SharedValue<number>;
+};
+
+const Alien: React.FC<AlienProps> = ({ alien, index, progress }) => {
+  const AlienSubject = alien.icon;
+
+  const animatedStyle = useAnimatedStyle(() => {
+    const distance = Math.abs(progress.value - index);
+    const scale = interpolate(
+      distance,
+      [0, 0.5, 1],
+      [1, 0, 0],
+      Extrapolate.CLAMP,
+    );
+    const opacity = interpolate(
+      distance,
+      [0, 0.5, 1],
+      [1, 0, 0],
+      Extrapolate.CLAMP,
+    );
+    return { transform: [{ scale }], opacity };
+  });
+
+  return (
+    <Animated.View style={[styles.item, animatedStyle]}>
+      <AlienSubject
+        width={ALIEN_SIZE}
+        height={ALIEN_SIZE}
+        color={appColors.greenDarker}
+        style={{ transform: [{ scale: alien.ratio }] }}
+      />
+    </Animated.View>
+  );
+};
+
+type AlienScrollViewProps = {
   data: AlienDataProps[];
+  progress: SharedValue<number>;
+  scrollRef: React.Ref<Animated.FlatList<AlienDataProps>>;
+  onScroll: (event: any) => void;
 };
 
 export const AlienScrollView: React.FC<AlienScrollViewProps> = ({
+  data,
+  progress,
   scrollRef,
   onScroll,
-  data,
 }) => {
-  const randomColors = useMemo(
-    () =>
-      data.map(
-        () =>
-          `#${Math.floor(Math.random() * 0xffffff)
-            .toString(16)
-            .padStart(6, '0')}`,
-      ),
-    [data],
+  const renderItem: ListRenderItem<AlienDataProps> = ({ item, index }) => (
+    <Alien alien={item} index={index} progress={progress} />
   );
 
   return (
-    <Animated.ScrollView
+    <Animated.FlatList
       horizontal
       ref={scrollRef}
+      data={data}
+      renderItem={renderItem}
+      keyExtractor={item => item.name}
       pagingEnabled
       decelerationRate="fast"
-      snapToInterval={WATCH_SIZE / 2}
+      snapToInterval={WATCH_SIZE}
       snapToAlignment="center"
       showsHorizontalScrollIndicator={false}
+      scrollEventThrottle={16}
       onScroll={onScroll}
-      style={{
-        position: 'absolute',
-        zIndex: 11,
-        top: PADDING + 50, // adjust based on your circle offsets
-        left: PADDING + 40,
-      }}
-      contentContainerStyle={{
-        paddingHorizontal: (appWidth - ALIEN_SIZE) / 2, // center first & last alien
-      }}
-    >
-      {data.map((alien, alienIndex) => {
-        const AlienSubject = alien.icon;
-
-        return (
-          <View
-            key={alien.name}
-            style={{
-              width: WATCH_SIZE / 2,
-              height: WATCH_SIZE / 2,
-              // backgroundColor: randomColors[alienIndex],
-              justifyContent: 'center',
-              alignItems: 'center',
-              // backgroundColor: "#77AA66",
-            }}
-          >
-            <AlienSubject
-              width={150}
-              height={150}
-              color={appColors.greenDarker}
-            />
-            {/* {alien.icon} */}
-          </View>
-        );
-      })}
-    </Animated.ScrollView>
+      style={styles.scrollView}
+      contentContainerStyle={styles.contentContainer}
+    />
   );
 };
+
+const styles = StyleSheet.create({
+  scrollView: {
+    width: WATCH_SIZE,
+    height: WATCH_SIZE,
+    position: 'absolute',
+    zIndex: 50,
+    top: 0,
+    left: 0,
+  },
+  contentContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  item: {
+    width: WATCH_SIZE,
+    height: WATCH_SIZE,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});

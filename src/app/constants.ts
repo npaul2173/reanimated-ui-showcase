@@ -10,12 +10,12 @@ export type ScreensListProps = {
 
 export const listData: ScreensListProps[] = [
   {
-    navigationKey: 'cardSwitch',
-    title: 'Card switch UI',
+    navigationKey: 'omnitrix',
+    title: 'Omnitrix',
     description:
       'Showcases interactive cards with fluid animations and smooth scaling transitions.',
-    bgColor: '#2e8fbcff', // red-500
-    color: '#ffffffff',
+    bgColor: '#171b29ff', // red-500
+    color: '#E3F326',
   },
   {
     navigationKey: 'voiceRoomUsersPreview',
@@ -25,14 +25,6 @@ export const listData: ScreensListProps[] = [
     bgColor: '#d6d6d6ff', // red-500
     color: '#000000',
   },
-  // {
-  //   navigationKey: 'verticalCarousel',
-  //   title: 'Vertical Carousel',
-  //   description:
-  //     'Displays animated micro cards with curved transitions for dynamic visual flow',
-  //   bgColor: '#f2ab07ff', // red-500
-  // },
-
   {
     navigationKey: 'typingAnimation',
     title: 'Typing animation',

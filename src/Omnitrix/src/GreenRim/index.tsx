@@ -1,19 +1,24 @@
 import { View } from 'react-native';
-import { PADDING, WATCH_SIZE } from '../screen';
 import GreenRimSvg from '../../svgs/watchElements/greenRim.svg';
+import { WATCH_SIZE } from '../screen';
 
+const GREEN_RIM_SIZE = WATCH_SIZE * 0.75;
 export const GreenRim: React.FC = () => {
   return (
     <View
       style={{
         pointerEvents: 'none',
         position: 'absolute',
-        zIndex: 10,
-        top: PADDING + 20,
-        left: PADDING + 40,
+        zIndex: 20,
+        top: 0,
+        left: 0,
+        width: WATCH_SIZE,
+        height: WATCH_SIZE,
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
-      <GreenRimSvg width={WATCH_SIZE - 80} height={WATCH_SIZE - 80} />
+      <GreenRimSvg width={GREEN_RIM_SIZE} height={GREEN_RIM_SIZE} />
     </View>
   );
 };
