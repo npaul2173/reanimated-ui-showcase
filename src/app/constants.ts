@@ -10,6 +10,14 @@ export type ScreensListProps = {
 
 export const listData: ScreensListProps[] = [
   {
+    navigationKey: 'cardSwitch',
+    title: 'Card switch UI',
+    description:
+      'Showcases interactive cards with fluid animations and smooth scaling transitions.',
+    bgColor: '#2e8fbcff', // red-500
+    color: '#ffffffff',
+  },
+  {
     navigationKey: 'voiceRoomUsersPreview',
     title: 'Voice room preview',
     description:
