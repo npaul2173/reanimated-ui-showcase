@@ -33,13 +33,6 @@ export const Screen = () => {
   console.log({ activeIndex });
   useBGSoundLoop();
 
-  // const animatedStyle = useAnimatedStyle(() => ({
-  //   transform: [{ rotate: `${rotation.value}deg` }],
-  // }));
-
-  // Enable playback in background and when screen is locked
-  // Sound.setCategory('Playback');
-
   const whoosh = new Sound('watch_clutch.mp3', Sound.MAIN_BUNDLE, error => {
     if (error) {
       console.log('failed to load the sound', error);
@@ -52,17 +45,6 @@ export const Screen = () => {
         'number of channels: ' +
         whoosh.getNumberOfChannels(),
     );
-
-    // Play the sound with an onEnd callback
-    // whoosh.play(success => {
-    //   if (success) {
-    //     console.log('successfully finished playing');
-    //   } else {
-    //     console.log('playback failed due to audio decoding errors');
-    //   }
-    //   // Release the audio player resource once playback is complete
-    //   whoosh.release();
-    // });
   });
 
   const scrollHandler = useAnimatedScrollHandler({
@@ -74,7 +56,6 @@ export const Screen = () => {
     onMomentumEnd: event => {
       const offsetX = event.contentOffset.x;
       const index = Math.round(offsetX / WATCH_SIZE);
-      // runOnJS(setActiveIndex)(index); // ensure exact page index
       scheduleOnRN(setActiveIndex, index);
     },
   });

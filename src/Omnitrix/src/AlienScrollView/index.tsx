@@ -69,6 +69,7 @@ export const AlienScrollView: React.FC<AlienScrollViewProps> = ({
     <Animated.FlatList
       horizontal
       ref={scrollRef}
+      scrollEnabled={false}
       data={data}
       renderItem={renderItem}
       keyExtractor={item => item.name}
