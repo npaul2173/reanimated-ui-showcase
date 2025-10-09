@@ -10,6 +10,14 @@ export type ScreensListProps = {
 
 export const listData: ScreensListProps[] = [
   {
+    navigationKey: 'pillMenuOverlay',
+    title: 'Pill Menu overlay',
+    description:
+      'Showcases interactive cards with fluid animations and smooth scaling transitions.',
+    bgColor: '#c2d0faff', // red-500
+    color: '#1b2543ff',
+  },
+  {
     navigationKey: 'omnitrix',
     title: 'Omnitrix',
     description:

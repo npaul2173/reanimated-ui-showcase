@@ -14,6 +14,7 @@ import verticalCarousel from '../vertical-carousel-travel-cards/app';
 import appleInvites from '../apple-invites/app';
 import typingAnimation from '../typing-animation/app';
 import cardSwitch from '../card-switch/app';
+import pillMenuOverlay from '../pill-menu/app';
 /**
  * Define the RootStackParamList.
  *
@@ -34,6 +35,7 @@ export type RootStackParamList = {
   verticalCarousel: undefined;
   typingAnimation: undefined;
   cardSwitch: undefined;
+  pillMenuOverlay: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>({
@@ -52,6 +54,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>({
     verticalCarousel,
     typingAnimation,
     cardSwitch,
+    pillMenuOverlay,
   },
 });
 

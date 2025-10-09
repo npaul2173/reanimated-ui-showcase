@@ -49,7 +49,7 @@ export const Header: React.FC<{ scrollY: SharedValue<number> }> = ({
   // Subtitle shrink from left-middle
   const titleAnimatedStyle = useAnimatedStyle(() => {
     // Pivot point: left-middle of the bubble
-    const PIVOT_X = 40; // left edge
+    const PIVOT_X = 10; // left edge
 
     const scale = interpolate(
       scrollY.value,
