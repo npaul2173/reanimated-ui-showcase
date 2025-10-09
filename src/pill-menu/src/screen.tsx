@@ -1,7 +1,8 @@
 import { Dimensions, StatusBar, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { appColors } from '../constants';
+import { appColors, cryptoItems } from '../constants';
 import TabSelector from './tabs';
+import PillMenu from './pillMenu';
 
 export const PADDING = 20;
 const { width: appWidth } = Dimensions.get('screen');
@@ -13,6 +14,7 @@ export const Screen = () => {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle={'light-content'} />
       <TabSelector />
+      <PillMenu items={cryptoItems} />
     </SafeAreaView>
   );
 };
