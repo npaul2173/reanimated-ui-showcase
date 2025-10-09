@@ -2,19 +2,19 @@
 
 1. 🦸‍♂️ **Omnitrix**  
    Showcases interactive cards with fluid animations and smooth scaling transitions.  
-   [UI Reference – Pinterest](https://in.pinterest.com/pin/787004103674154837/)
+   [UI Reference – Pinterest](https://in.pinterest.com/pin/787004103674210057/)
 
 2. 🗣️ **Voice Room Preview**  
    Displays animated micro cards with curved transitions for dynamic visual flow.  
-   [UI Reference – Pinterest](https://in.pinterest.com/pin/787004103674106818/)
+   [UI Reference – Pinterest](https://in.pinterest.com/pin/787004103674185814/)
 
 3. ⌨️ **Typing Animation**  
    Smooth typing animation with custom cursor blinking.  
-   [Replicated from Enzo - Reanimated](https://www.youtube.com/watch?v=NNRym_f8JsA&list=PLjHsmVtnAr9TWoMAh-3QMiP7bPUqPFuFZ&index=25)
+   [Replicated from Enzo - Reanimated](https://in.pinterest.com/pin/787004103674169522/)
 
 4. 🍏 **Apple Invites**  
    Displays apple invites new scrollview animation.  
-   [UI Reference – Pinterest](https://in.pinterest.com/pin/787004103674071168/)
+   [UI Reference – Pinterest](https://in.pinterest.com/pin/129548926779977160/)
 
 5. 🃏 **Curved Cards**  
    Displays animated micro cards with curved transitions for dynamic visual flow.  
