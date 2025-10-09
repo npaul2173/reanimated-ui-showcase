@@ -10,7 +10,7 @@
 
 3. ⌨️ **Typing Animation**  
    Smooth typing animation with custom cursor blinking.  
-   [Replicated from Enzo - Reanimated](https://in.pinterest.com/pin/787004103674169522/)
+   [UI Reference - Pinterest](https://in.pinterest.com/pin/787004103674169522/)
 
 4. 🍏 **Apple Invites**  
    Displays apple invites new scrollview animation.  
