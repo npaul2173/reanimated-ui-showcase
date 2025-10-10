@@ -106,6 +106,7 @@ const styles = StyleSheet.create({
   },
   flexDirectionDow: {
     flexDirection: 'row',
+    alignItems: 'center',
   },
 });
 
