@@ -9,7 +9,8 @@ export const appColors = {
   text: '#fff',
   pillText: '#E2E2E2',
   base: '#061526',
-  baseLighter: '#1C2639',
+  baseLighter: '#263550ff',
+  baseLight: '#1C2639',
 };
 
 // Create an array of PillMenuItemProps from the cryptoLogos object

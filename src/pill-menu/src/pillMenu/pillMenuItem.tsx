@@ -18,6 +18,7 @@ type PillMenuItemProps = {
   image: any;
   name: string;
   onPress?: (id: string) => void;
+  isSelected: boolean;
 };
 console.log('ITEM_WIDTH', { ITEM_WIDTH }, { CONTAINER_WIDTH });
 
@@ -26,9 +27,14 @@ const PillMenuItem: React.FC<PillMenuItemProps> = ({
   name,
   id,
   onPress,
+  isSelected,
 }) => {
+  const pillContainerStyles = {
+    ...styles.pillItemContainer,
+    backgroundColor: isSelected ? appColors.baseLighter : appColors.baseLight,
+  };
   return (
-    <View onTouchEnd={() => onPress?.(id)} style={styles.pillItemContainer}>
+    <View onTouchEnd={() => onPress?.(id)} style={pillContainerStyles}>
       <View style={styles.flexDirectionDow}>
         <Image
           source={image}
@@ -46,12 +52,9 @@ const PillMenuItem: React.FC<PillMenuItemProps> = ({
   );
 };
 
-export const PillDropdownItem: React.FC<PillMenuItemProps> = ({
-  image,
-  name,
-  onPress,
-  id,
-}) => {
+export const PillDropdownItem: React.FC<
+  Omit<PillMenuItemProps, 'isSelected'>
+> = ({ image, name, onPress, id }) => {
   return (
     <View
       onTouchEnd={() => onPress?.(id)}

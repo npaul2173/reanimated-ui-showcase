@@ -46,8 +46,8 @@ const PillMenu: React.FC<PillMenuProps> = ({
   const [isOpen, setIsOpen] = useState(false);
 
   const selectedCrypto = useMemo(
-    () => cryptoItems.find(item => item.id === selectedCryptoId),
-    [selectedCryptoId],
+    () => items.find(item => item.id === selectedCryptoId),
+    [items, selectedCryptoId],
   );
 
   const containerHeight = useMemo(() => {
@@ -134,6 +134,7 @@ const PillMenu: React.FC<PillMenuProps> = ({
               <PillMenuItem
                 key={item.id}
                 id={item.id}
+                isSelected={selectedCrypto?.id === item.id}
                 image={item.image}
                 name={item.name}
                 onPress={id => {
