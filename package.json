@@ -9,6 +9,7 @@
     "start": "react-native start",
     "test": "jest",
     "release": "npm run android -- --mode release",
+    "build": "npx react-native build-android --mode=release",
     "remove": "adb uninstall com.hexmapsreactnative",
     "clearData": "adb shell pm clear com.hexmapsreactnative && yarn android"
   },

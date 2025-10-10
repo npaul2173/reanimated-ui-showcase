@@ -1,7 +1,7 @@
+import { useState } from 'react';
 import { Dimensions, StatusBar, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { appColors, cryptoItems } from '../constants';
-import TabSelector from './tabs';
 import PillMenu from './pillMenu';
 
 export const PADDING = 20;
@@ -10,11 +10,15 @@ export const WATCH_SIZE = appWidth * 0.9;
 
 // Screen code
 export const Screen = () => {
+  const [selectedCryptoId, setSelectedCryptoId] = useState(cryptoItems[0].id);
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container]}>
       <StatusBar barStyle={'light-content'} />
-      <TabSelector />
-      <PillMenu items={cryptoItems} />
+      <PillMenu
+        items={cryptoItems}
+        selectedCryptoId={selectedCryptoId}
+        setSelectedCryptoId={setSelectedCryptoId}
+      />
     </SafeAreaView>
   );
 };
@@ -22,7 +26,7 @@ export const Screen = () => {
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 40,
+    // paddingTop: 80,
     backgroundColor: appColors.white,
   },
 });

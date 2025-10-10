@@ -29,7 +29,7 @@ const PillMenuItem: React.FC<PillMenuItemProps> = ({
 }) => {
   return (
     <View onTouchEnd={() => onPress?.(id)} style={styles.pillItemContainer}>
-      <View style={{ flexDirection: 'row' }}>
+      <View style={styles.flexDirectionDow}>
         <Image
           source={image}
           style={[styles.pillImage, getRoundedStyles(24)]}
@@ -37,7 +37,11 @@ const PillMenuItem: React.FC<PillMenuItemProps> = ({
         <Text style={styles.pillText}>{name}</Text>
       </View>
 
-      <MaterialDesignIcons name="menu-right" color={appColors.pillText} />
+      <MaterialDesignIcons
+        size={20}
+        name="menu-right"
+        color={appColors.pillText}
+      />
     </View>
   );
 };
@@ -53,7 +57,7 @@ export const PillDropdownItem: React.FC<PillMenuItemProps> = ({
       onTouchEnd={() => onPress?.(id)}
       style={styles.pillDropdownItemContainer}
     >
-      <View style={{ flexDirection: 'row' }}>
+      <View style={styles.flexDirectionDow}>
         <Image
           source={image}
           style={[styles.pillImage, getRoundedStyles(24)]}
@@ -61,7 +65,11 @@ export const PillDropdownItem: React.FC<PillMenuItemProps> = ({
         <Text style={styles.pillText}>{name}</Text>
       </View>
 
-      <MaterialDesignIcons name="menu-down" color={appColors.pillText} />
+      <MaterialDesignIcons
+        name="menu-down"
+        size={20}
+        color={appColors.pillText}
+      />
     </View>
   );
 };
@@ -91,10 +99,13 @@ const styles = StyleSheet.create({
     width: ITEM_WIDTH,
     height: 60,
     paddingHorizontal: 12,
-    borderRadius: 10,
+    borderRadius: 60,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+  },
+  flexDirectionDow: {
+    flexDirection: 'row',
   },
 });
 

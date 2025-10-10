@@ -13,7 +13,7 @@ export const listData: ScreensListProps[] = [
     navigationKey: 'pillMenuOverlay',
     title: 'Pill Menu overlay',
     description:
-      'Showcases interactive cards with fluid animations and smooth scaling transitions.',
+      'A sleek pill-shaped dropdown that expands into a smooth animated grid of coins for effortless network switching.',
     bgColor: '#c2d0faff', // red-500
     color: '#1b2543ff',
   },
