@@ -10,6 +10,13 @@ export type ScreensListProps = {
 
 export const listData: ScreensListProps[] = [
   {
+    navigationKey: 'shufflePinnedItems',
+    title: 'Shuffle Pinned items',
+    description: 'A minimilistic list of pinned items that you can shuffle',
+    bgColor: '#d5f4f6ff', // red-500
+    color: '#076751ff',
+  },
+  {
     navigationKey: 'pillMenuOverlay',
     title: 'Pill Menu overlay',
     description:

@@ -15,6 +15,7 @@ import appleInvites from '../apple-invites/app';
 import typingAnimation from '../typing-animation/app';
 import cardSwitch from '../card-switch/app';
 import pillMenuOverlay from '../pill-menu/app';
+import shufflePinnedItems from '../shuffle-pinned-items/app';
 /**
  * Define the RootStackParamList.
  *
@@ -36,6 +37,7 @@ export type RootStackParamList = {
   typingAnimation: undefined;
   cardSwitch: undefined;
   pillMenuOverlay: undefined;
+  shufflePinnedItems: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>({
@@ -55,6 +57,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>({
     typingAnimation,
     cardSwitch,
     pillMenuOverlay,
+    shufflePinnedItems,
   },
 });
 

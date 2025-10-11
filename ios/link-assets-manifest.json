@@ -22,6 +22,34 @@
       "sha1": "6a67f0e2d1549f7a69c8caa2bbc04abe61e15bc9"
     },
     {
+      "path": "assets/fonts/Manrope-Bold.ttf",
+      "sha1": "dbc0b874ad8b9f3415d0e9b4e22907890ca72327"
+    },
+    {
+      "path": "assets/fonts/Manrope-ExtraBold.ttf",
+      "sha1": "df131208d5c08ff782fbf12c264f473d8dacd83e"
+    },
+    {
+      "path": "assets/fonts/Manrope-ExtraLight.ttf",
+      "sha1": "bc714297659d8d6d987142c11987df3fe6f04b4e"
+    },
+    {
+      "path": "assets/fonts/Manrope-Light.ttf",
+      "sha1": "27d7897032dc0615ace6c53fd292107ae53280e5"
+    },
+    {
+      "path": "assets/fonts/Manrope-Medium.ttf",
+      "sha1": "b5e2c6265e0919163142bb8eac9b6450fb91f920"
+    },
+    {
+      "path": "assets/fonts/Manrope-Regular.ttf",
+      "sha1": "3f36e4904a42d23273ac346047c1b6bcf067ccfc"
+    },
+    {
+      "path": "assets/fonts/Manrope-SemiBold.ttf",
+      "sha1": "f7a023cd6c102b2ffa8bf729579552445970d62d"
+    },
+    {
       "path": "assets/fonts/Poppins-Bold.ttf",
       "sha1": "875cf0cecd647bcf22e79d633d868c1b1ec98dfa"
     },
@@ -55,7 +83,7 @@
     },
     {
       "path": "assets/fonts/index.ts",
-      "sha1": "d296c459b1c5abcbb3772af713ef7bcc8e43d5b4"
+      "sha1": "07d13b7e3879dea3679382c20a7769951c4c186d"
     }
   ]
 }

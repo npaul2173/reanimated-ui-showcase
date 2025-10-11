@@ -18,4 +18,13 @@ export const fontFamily = {
     bold: 'Lexend-Bold',
     semiBold: 'Lexend-SemiBold',
   },
+  manrope: {
+    medium: 'Manrope-Medium',
+    light: 'Manrope-Light',
+    extraLight: 'Manrope-ExtraLight',
+    regular: 'Manrope-Regular',
+    bold: 'Manrope-Bold',
+    extraBold: 'Manrope-ExtraBold',
+    semiBold: 'Manrope-SemiBold',
+  },
 };
