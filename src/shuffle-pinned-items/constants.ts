@@ -3,6 +3,8 @@ import { ShuffleItemDataProps } from './screen/shuffledPinnedItems';
 export const COMMON_PADDING_HORIZONTAL = 16;
 
 export const appColors = {
+  green: '#076751ff',
+  greenLight: '#badfdfff',
   white: '#FFFFFF',
   black: '#000000',
   grey001: '#444444',
