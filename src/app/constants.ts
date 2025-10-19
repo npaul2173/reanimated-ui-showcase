@@ -10,6 +10,13 @@ export type ScreensListProps = {
 
 export const listData: ScreensListProps[] = [
   {
+    navigationKey: 'rotatingCardsList',
+    title: 'Spotify Rotating List',
+    description: 'An engaging rotating card list animation inspired by Spotify UI.',
+    bgColor: '#18b750ff', // red-500
+    color: '#ffffffff',
+  },
+  {
     navigationKey: 'shufflePinnedItems',
     title: 'Shuffle Pinned items',
     description: 'A minimilistic list of pinned items that you can shuffle',

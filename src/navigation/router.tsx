@@ -16,6 +16,7 @@ import typingAnimation from '../typing-animation/app';
 import cardSwitch from '../card-switch/app';
 import pillMenuOverlay from '../pill-menu/app';
 import shufflePinnedItems from '../shuffle-pinned-items/app';
+import rotatingCardsList from '../rotating-cards-list/app';
 /**
  * Define the RootStackParamList.
  *
@@ -38,6 +39,7 @@ export type RootStackParamList = {
   cardSwitch: undefined;
   pillMenuOverlay: undefined;
   shufflePinnedItems: undefined;
+  rotatingCardsList: undefined
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>({
@@ -58,6 +60,7 @@ const RootStack = createNativeStackNavigator<RootStackParamList>({
     cardSwitch,
     pillMenuOverlay,
     shufflePinnedItems,
+    rotatingCardsList
   },
 });
 
