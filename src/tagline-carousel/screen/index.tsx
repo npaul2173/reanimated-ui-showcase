@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { StatusBar, StyleSheet, Text, ImageBackground, View, TouchableOpacity } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { appColors, data } from '../constants';
-import { fontFamily } from '../../../assets/fonts';
-import { TagLineCarousel } from '../TagLineCarousel/index';
 import MaterialDesignIcons from '@react-native-vector-icons/material-design-icons';
+import React from 'react';
+import { ImageBackground, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { fontFamily } from '../../../assets/fonts';
+import { appColors, } from '../constants';
+import { TagLineCarousel } from '../TagLineCarousel/index';
 
 const PADDING = 30;
 
@@ -22,28 +22,31 @@ export const Screen: React.FC = () => {
         resizeMode="cover"
       >
         <View style={styles.content}>
+
+
           <TagLineCarousel />
 
-          {/* Logo placeholder */}
-          <View style={styles.logoPlaceholder} />
+          <View  >
+            {/* Logo placeholder */}
+            <View style={styles.logoPlaceholder} >
+              <MaterialDesignIcons name='alphabet-aurebesh' size={40} color={appColors.black} />
+            </View>
 
-          {/* Title */}
-          <Text style={styles.title}>Your money, upgraded</Text>
+            <Text style={styles.title}>{`Your money,\nupgraded`}</Text>
+            <Text style={styles.subtitle}>Save, earn and invest with stablecoins and digital assets.</Text>
 
-          {/* Subtitle */}
-          <Text style={styles.subtitle}>Save, earn and invest with stablecoins and digital assets.</Text>
+            {/* Buttons */}
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity style={styles.appleButton}>
+                <MaterialDesignIcons name='apple' size={24} color={appColors.black} />
+                <Text style={styles.appleButtonText}>Continue with Apple</Text>
+              </TouchableOpacity>
 
-          {/* Buttons */}
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.appleButton}>
-              <MaterialDesignIcons name='apple' size={24} color={appColors.black} />
-              <Text style={styles.appleButtonText}>Continue with Apple</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.walletButton}>
-              <MaterialDesignIcons name='restart' size={24} color={appColors.white} />
-              <Text style={styles.walletButtonText}>Recover existing wallet</Text>
-            </TouchableOpacity>
+              <TouchableOpacity style={styles.walletButton}>
+                <MaterialDesignIcons name='restart' size={24} color={appColors.white} />
+                <Text style={styles.walletButtonText}>Recover existing wallet</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </ImageBackground>
@@ -58,6 +61,7 @@ const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
     justifyContent: 'space-between',
+    alignItems: 'flex-start',
   },
   content: {
     flex: 1,
@@ -67,28 +71,30 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   logoPlaceholder: {
+    justifyContent: 'center',
+    alignItems: 'center',
     width: 70,
     height: 70,
-    backgroundColor: appColors.whiteSemiTransparent20,
+    backgroundColor: appColors.white,
     borderRadius: 12,
-    alignSelf: 'center',
     marginVertical: 20,
   },
   title: {
     fontSize: 32,
     fontWeight: 'bold',
     color: appColors.white,
-    textAlign: 'center',
+    textAlign: 'left',
     marginBottom: 12,
     fontFamily: fontFamily.manrope.bold,
   },
   subtitle: {
     fontSize: 16,
     color: appColors.white,
-    textAlign: 'center',
+    textAlign: 'left',
     opacity: 0.9,
     marginBottom: 40,
     fontFamily: fontFamily.manrope.regular,
+
   },
   buttonContainer: {
     gap: 16,

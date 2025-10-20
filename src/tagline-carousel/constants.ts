@@ -14,8 +14,8 @@ export const appColors = {
 
 export const data = {
   taglineItems: [
-    { id: 1, text: 'Earn', icon: 'earn-icon' },
-    { id: 2, text: 'Spend', icon: 'spend-icon' },
-    { id: 3, text: 'Invest', icon: 'invest-icon' },
+    { id: 1, text: 'Earn', icon: 'earn-icon', imageSource: require('./assets/images/cash.png') },
+    { id: 2, text: 'Spend', icon: 'spend-icon', imageSource: require('./assets/images/spend.png') },
+    { id: 3, text: 'Invest', icon: 'invest-icon', imageSource: require('./assets/images/coins.png') },
   ],
 };
