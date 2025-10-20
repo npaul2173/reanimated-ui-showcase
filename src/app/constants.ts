@@ -10,6 +10,14 @@ export type ScreensListProps = {
 
 export const listData: ScreensListProps[] = [
   {
+    navigationKey: 'taglineCarousel',
+    title: 'Tagline Carousel',
+    description:
+      'A smooth, auto-scrolling tagline carousel with seamless looping and elegant fade transitions.',
+    bgColor: '#f6d55cff', // red-500
+    color: '#3c241aff',
+  },
+  {
     navigationKey: 'shufflePinnedItems',
     title: 'Shuffle Pinned items',
     description: 'A minimilistic list of pinned items that you can shuffle',
