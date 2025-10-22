@@ -10,6 +10,14 @@ export type ScreensListProps = {
 
 export const listData: ScreensListProps[] = [
   {
+    navigationKey: 'histogramDashboard',
+    title: 'Histogram Dashboard',
+    description:
+      'A histogram dashboard interface with smooth animations and data visualization',
+    bgColor: '#2d3748ff', // dark gray
+    color: '#68d391',
+  },
+  {
     navigationKey: 'shufflePinnedItems',
     title: 'Shuffle Pinned items',
     description: 'A minimilistic list of pinned items that you can shuffle',
