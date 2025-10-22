@@ -10,6 +10,14 @@ export type ScreensListProps = {
 
 export const listData: ScreensListProps[] = [
   {
+    navigationKey: 'customizeCalculator',
+    title: 'Customize Calculator',
+    description:
+      'A customizable calculator interface with smooth animations and interactive elements',
+    bgColor: '#0A5E82', // dark slate
+    color: '#f59e0b',
+  },
+  {
     navigationKey: 'shufflePinnedItems',
     title: 'Shuffle Pinned items',
     description: 'A minimilistic list of pinned items that you can shuffle',
