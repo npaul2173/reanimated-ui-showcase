@@ -14,8 +14,8 @@ export const listData: ScreensListProps[] = [
     title: 'Customize Calculator',
     description:
       'A customizable calculator interface with smooth animations and interactive elements',
-    bgColor: '#0A5E82', // dark slate
-    color: '#f59e0b',
+    bgColor: '#01425D', // dark slate
+    color: '#FCBD50',
   },
   {
     navigationKey: 'shufflePinnedItems',
