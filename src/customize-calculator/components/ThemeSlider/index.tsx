@@ -7,6 +7,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import { appColors, CalculatorTheme } from '../../constants';
+import { ThemeBox } from '../ThemeBox';
 
 type ThemeSliderProps = {
   themes: CalculatorTheme[];
@@ -28,31 +29,7 @@ export const ThemeSlider: React.FC<ThemeSliderProps> = ({
         contentContainerStyle={styles.sliderContent}
       >
         {themes.map(theme => {
-          return (
-            <View key={theme.id} style={[styles.colorSwatch]}>
-              <View
-                style={{
-                  width: '100%',
-                  height: 20,
-                  backgroundColor: theme.theme.tertiary.backgroundColor,
-                }}
-              />
-              <View
-                style={{
-                  width: '100%',
-                  height: 20,
-                  backgroundColor: theme.theme.secondary.backgroundColor,
-                }}
-              />
-              <View
-                style={{
-                  width: '100%',
-                  height: 20,
-                  backgroundColor: theme.theme.base.buttonColor,
-                }}
-              />
-            </View>
-          );
+          return <ThemeBox key={theme.id} theme={theme} />;
         })}
       </ScrollView>
     </View>
