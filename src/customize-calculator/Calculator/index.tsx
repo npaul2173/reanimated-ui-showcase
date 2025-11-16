@@ -1,13 +1,13 @@
+import MaterialDesignIcons from '@react-native-vector-icons/material-design-icons';
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import {
+  BUTTON_SIZE,
+  CalculatorButton,
   CalculatorTheme,
   CalculatorThemeKey,
-  CalculatorButton,
   buttonLayout,
-  BUTTON_SIZE,
 } from '../constants';
-import MaterialDesignIcons from '@react-native-vector-icons/material-design-icons';
 
 export interface CalculatorProps {
   theme: CalculatorTheme['theme'];

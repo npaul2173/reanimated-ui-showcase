@@ -9,7 +9,7 @@ export const appColors = {
 };
 
 export const BUTTON_SIZE = 55;
-
+export const SCREEN_PADDING = 20;
 export type CalculatorThemeKey = 'base' | 'secondary' | 'tertiary';
 
 export interface ThemePalette {
@@ -31,6 +31,84 @@ export interface CalculatorTheme {
 }
 
 export const calculatorThemes: CalculatorTheme[] = [
+  {
+    id: 'gameboy2',
+    name: 'Game Boy 2',
+    theme: {
+      base: {
+        backgroundColor: '#FDB441',
+        buttonColor: '#FFF7EC',
+        buttonTextColor: '#1E150A',
+        buttonBorderColor: '#FFD599',
+      },
+      secondary: {
+        backgroundColor: '#FF5C39',
+        buttonColor: '#FF462F',
+        buttonTextColor: '#FFFFFF',
+        buttonBorderColor: '#D63A1E',
+      },
+      tertiary: {
+        backgroundColor: '#1E70C1',
+        buttonColor: '#0E5AA8',
+        buttonTextColor: '#FFFFFF',
+        buttonBorderColor: '#0A437F',
+      },
+      textColor: '#C62B13',
+    },
+  },
+  
+  {
+    id: 'stone-orange',
+    name: 'Stone Orange',
+    theme: {
+      base: {
+        backgroundColor: '#F2EEE6',
+        buttonColor: '#B8B1A6',
+        buttonTextColor: '#1F1C17',
+        buttonBorderColor: '#D8D3C9',
+      },
+      secondary: {
+        backgroundColor: '#FFE4D0',
+        buttonColor: '#FF7033',
+        buttonTextColor: '#FFFFFF',
+        buttonBorderColor: '#E25A2D',
+      },
+      tertiary: {
+        backgroundColor: '#4A3F37',
+        buttonColor: '#3A312A',
+        buttonTextColor: '#FFFFFF',
+        buttonBorderColor: '#2B231E',
+      },
+      textColor: '#1F1C17',
+    },
+  },
+  
+  {
+    id: 'developer',
+    name: 'Developer',
+    theme: {
+      base: {
+        backgroundColor: '#01425D',
+        buttonColor: '#0A5C7A',
+        buttonTextColor: '#FFFFFF',
+        buttonBorderColor: null,
+      },
+      secondary: {
+        backgroundColor: '#0F4C5C',
+        buttonColor: '#127C8D',
+        buttonTextColor: '#FFFFFF',
+        buttonBorderColor: '#0B2C3D',
+      },
+      tertiary: {
+        backgroundColor: '#1A8F90',
+        buttonColor: '#20B2AA',
+        buttonTextColor: '#FFFFFF',
+        buttonBorderColor: null,
+      },
+      textColor: '#E7F6F2',
+    },
+  },
+
   {
     id: 'marine',
     name: 'Marine',
@@ -281,6 +359,7 @@ export const calculatorThemes: CalculatorTheme[] = [
       textColor: '#EDF2F4',
     },
   },
+
   {
     id: 'aurora',
     name: 'Aurora',
